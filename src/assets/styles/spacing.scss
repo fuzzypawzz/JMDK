@@ -1,0 +1,26 @@
+@use 'sass:math';
+@use 'sass:list';
+
+$base-unit: 4px;
+
+/*
+  Calculates and returns values in pixels based on the base-unit
+  @example space(10) => '40px'
+  @example space(2, 4) => '8px 16px'
+  @example space(10, 2, 1, 11) => '40px 8px 4px 44px'
+*/
+@function space($values...) {
+  @if length($values) > 4 {
+    @error "space calculator: A maximum of 4 parameters is allowed";
+  }
+  $accumulator: ();
+
+  @each $value in $values {
+    @if math.round($value) != $value {
+      @error "space calculator: arguments must be whole numbers";
+    }
+    $accumulator: list.append($accumulator, $base-unit * $value);
+  }
+
+  @return $accumulator;
+}
