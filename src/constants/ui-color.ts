@@ -1,0 +1,4 @@
+export enum UI_COLOR {
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
+}
