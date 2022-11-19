@@ -5,7 +5,16 @@
     <p>Passionate about Front-End architecture.</p>
     <p>Freelancer.</p>
     <p>A human being.</p>
+    <CButton>Hello world</CButton>
   </main>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts">
+import CButton from '@/components/CButton/CButton.vue'
+
+export default {
+  components: {
+    CButton,
+  },
+}
+</script>
