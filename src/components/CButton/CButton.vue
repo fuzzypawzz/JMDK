@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick()"><slot /></button>
+  <button class="c-button" @click="onClick()"><slot /></button>
 </template>
 
 <script lang="ts">
@@ -11,3 +11,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./c-button.scss" />

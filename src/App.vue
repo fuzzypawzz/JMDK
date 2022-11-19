@@ -1,14 +1,23 @@
 <script lang="ts">
 import { RouterView } from 'vue-router'
-import SiteLogo from './components/Molecules/SiteLogo/SiteLogo.vue'
 
 export default {
-  components: { SiteLogo, RouterView },
+  components: { RouterView },
 }
 </script>
 
 <template>
-  <header><SiteLogo /></header>
+  <header
+    style="
+      padding: 24px 32px;
+      font-family: 'Inria Sans';
+      font-weight: 700;
+      font-size: 28px;
+      position: fixed;
+    "
+  >
+    JMDK
+  </header>
 
   <RouterView />
 </template>
