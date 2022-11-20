@@ -1,22 +1,20 @@
+const path = require('path')
+
 // use `mergeConfig` to recursively merge Vite options
-const { mergeConfig } = require('vite')
+const { loadConfigFromFile, mergeConfig } = require('vite')
 
 module.exports = {
   async viteFinal(config, { configType }) {
+    const { config: userConfig } = await loadConfigFromFile(
+      path.resolve(__dirname, '../vite.config.ts')
+    )
+
     // Return a custom config
     // https://github.com/storybookjs/builder-vite#customize-vite-config
+    // https://github.com/storybookjs/builder-vite/issues/85
     return mergeConfig(config, {
-      css: {
-        preprocessorOptions: {
-          scss: {
-            additionalData: `
-              @import './src/assets/styles/_spacing.scss';
-              @import './src/assets/styles/_colors.scss';
-              @import 'include-media';
-            `,
-          },
-        },
-      },
+      ...userConfig,
+      plugins: [],
     })
   },
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
