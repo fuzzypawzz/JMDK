@@ -1,6 +1,6 @@
 <template>
   <div class="app__wrapper">
-    <header class="app__header">{{ contentModel.headerText }}</header>
+    <header class="app__header no-select">{{ contentModel.headerText }}</header>
     <RouterView />
   </div>
 </template>

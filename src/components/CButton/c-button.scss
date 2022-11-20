@@ -8,7 +8,11 @@
   background-color: map-get($map: $scheme, $key: primary);
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+
+  @include media('>tablet') {
+    font-size: 16px;
+  }
 
   &:hover {
     background-color: #618bde;
