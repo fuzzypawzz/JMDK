@@ -56,7 +56,7 @@
       
       @include media('>tablet') {
         display: block;
-        margin: unset;
+        margin: space(0, 1) 2px 0;
       }
     }
   }
