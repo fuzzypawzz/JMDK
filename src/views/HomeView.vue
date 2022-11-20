@@ -18,11 +18,15 @@
         {{ button.text }}
       </CButton>
 
-      <div class="home-view__hashtag-list">
-        <p v-for="text in content?.hashTags" :key="text">
-          <span class="home-view__hashtag no-select">#</span>{{ text }}
-        </p>
-      </div>
+      <ul class="home-view__hashtag-list">
+        <li
+          class="home-view__hashtag-list-item"
+          v-for="text in content?.hashTags"
+          :key="text"
+        >
+          <span class="home-view__hash no-select">#</span>{{ text }}
+        </li>
+      </ul>
     </section>
   </main>
 </template>

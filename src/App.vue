@@ -29,8 +29,12 @@ export default {
   &__header {
     font-family: 'Inria Sans';
     font-weight: 700;
-    font-size: 28px;
+    font-size: 24px;
     position: fixed;
+
+    @include media('>tablet') {
+      font-size: 28px;
+    }
   }
 }
 </style>

@@ -16,6 +16,7 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import "./src/assets/styles/_spacing.scss";
+          @import './src/assets/styles/_colors.scss';
           @import './node_modules/include-media/dist/include-media';
         `,
       },
