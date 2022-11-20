@@ -55,11 +55,11 @@
     // .home-view__hashtag-list-item
     &-item {
       display: inline-block;
-      margin-right: space(1);
+      margin: space(0, 1) 2px 0;
       
       @include media('>tablet') {
         display: block;
-        margin: space(0, 1) 2px 0;
+        margin: 0 0 2px 0;
       }
     }
   }
