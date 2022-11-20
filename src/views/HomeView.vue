@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import CButton from '@/components/CButton/CButton.vue'
+import CButton from '@/components/atoms/CButton/CButton.vue'
 import type { IContentModel } from './HomeViewContentModel'
 
 export default {
