@@ -12,6 +12,11 @@ export enum BUTTON_VARIANT {
   SECONDARY = 'SECONDARY',
 }
 
+const variantDict: IDictionary<string> = {
+  [BUTTON_VARIANT.PRIMARY]: 'c-button--primary',
+  [BUTTON_VARIANT.SECONDARY]: 'c-button--secondary',
+}
+
 export default {
   props: {
     variant: {
@@ -23,11 +28,6 @@ export default {
 
   computed: {
     buttonVariant() {
-      const variantDict: IDictionary<string> = {
-        [BUTTON_VARIANT.PRIMARY]: 'c-button--primary',
-        [BUTTON_VARIANT.SECONDARY]: 'c-button--secondary',
-      }
-
       return variantDict[this.variant]
     },
   },
