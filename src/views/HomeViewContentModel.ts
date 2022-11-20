@@ -19,19 +19,19 @@ export const contentModel: IContentModel = {
   A human being.`,
   buttonOptions: [
     {
-      text: 'GitHub',
+      text: 'My GitHub',
       externalLink: 'https://github.com/fuzzypawzz',
       title: 'Browse @fuzzypawzz on GitHub',
     },
     {
-      text: 'LinkedIn',
+      text: 'My profile on LinkedIn',
       externalLink: 'https://dk.linkedin.com/in/jannik-maag',
       title: 'Visit Janniks LinkedIn profile',
     },
-    {
-      text: 'Storybook',
-      title: 'Discover the Storybook of this website',
-    },
+    // {
+    //   text: 'Storybook',
+    //   title: 'Discover the Storybook of this website',
+    // },
   ],
   hashTags: [
     'TypeScript',

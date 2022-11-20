@@ -8,12 +8,18 @@
     font-weight: 700;
     font-size: 40px;
     text-transform: uppercase;
-    margin-bottom: space(3);
     letter-spacing: -1px;
 
     @include media('>tablet') {
       font-size: 58px;
-      margin-bottom: space(5);
+    }
+
+    &-wrapper {
+      margin-bottom: space(3);
+
+      @include media('>tablet') {
+        margin-bottom: space(5);
+      }
     }
     
     // .home-view__heading-dot
@@ -26,6 +32,18 @@
       @include media('>tablet') {
         font-size: 84px;
       }
+    }
+  }
+
+  &__handle {
+    font-family: 'Neucha', cursive;
+    color: map-get($dark, 500);
+    font-size: 14px;
+    margin-top: space(1);
+    display: flex;
+
+    @include media('>tablet') {
+      font-size: 16px;
     }
   }
 
@@ -42,10 +60,11 @@
   }
 
   &__hashtag-list {
-    color: rgb(83, 83, 83);
+    color: map-get($dark, 500);
     margin-top: space(4);
     line-height: normal;
     font-size: 14px;
+    font-family: 'Neucha', cursive;
 
     @include media('>tablet') {
       margin-top: space(6);

@@ -1,10 +1,13 @@
 <template>
   <main class="home-view">
     <section>
-      <h2 class="home-view__heading">
-        {{ content?.heading }}
-        <span class="home-view__heading-dot no-select">.</span>
-      </h2>
+      <div class="home-view__heading-wrapper">
+        <h2 class="home-view__heading">
+          {{ content?.heading }}
+          <span class="home-view__heading-dot no-select">.</span>
+        </h2>
+        <p class="home-view__handle">@fuzzypawzz on GitHub</p>
+      </div>
 
       <p class="home-view__about-me" v-html="content?.description" />
 
