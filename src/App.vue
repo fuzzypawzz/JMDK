@@ -1,23 +1,36 @@
+<template>
+  <div class="app__wrapper">
+    <header class="app__header">{{ contentModel.headerText }}</header>
+    <RouterView />
+  </div>
+</template>
+
 <script lang="ts">
 import { RouterView } from 'vue-router'
+import { contentModel } from './AppContentModel'
 
 export default {
   components: { RouterView },
+
+  data() {
+    return {
+      contentModel,
+    }
+  },
 }
 </script>
 
-<template>
-  <header
-    style="
-      padding: 24px 32px;
-      font-family: 'Inria Sans';
-      font-weight: 700;
-      font-size: 28px;
-      position: fixed;
-    "
-  >
-    JMDK
-  </header>
+<style lang="scss" scoped>
+.app {
+  &__wrapper {
+    padding: 24px 32px;
+  }
 
-  <RouterView />
-</template>
+  &__header {
+    font-family: 'Inria Sans';
+    font-weight: 700;
+    font-size: 28px;
+    position: fixed;
+  }
+}
+</style>
