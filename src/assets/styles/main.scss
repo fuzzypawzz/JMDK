@@ -1,7 +1,8 @@
-@import './spacing.scss';
 @import './colors.scss';
 @import './helpers.scss';
 @import './css-reset.css';
+@import '../../../node_modules/include-media/dist/include-media';
+
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&display=swap');
 
 * {
