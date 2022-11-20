@@ -25,7 +25,7 @@
     // .home-view__heading-dot
     &-dot {
       font-size: 54px;
-      color: #f87060;
+      color: map-get($scheme, 'secondary');
       position: relative;
       right: 6px;
 

@@ -1,6 +1,6 @@
-$scheme: (
-  primary: #87A6E2,
-  secondary: #F87060,
+$blue: (
+  500: #87A6E2,
+  600: #618bde
 );
 
 $greys: (
@@ -10,4 +10,9 @@ $greys: (
 
 $dark: (
   500: #353535,
-)
+);
+
+$scheme: (
+  primary: map-get($blue, 500),
+  secondary: #F87060,
+);
