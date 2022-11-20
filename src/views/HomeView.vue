@@ -1,68 +1,54 @@
 <template>
   <main class="home-view">
-    <div class="home-view__content">
+    <section>
       <h2 class="home-view__heading">
-        Jannik Maag<span class="home-view__heading-dot">.</span>
+        {{ content?.heading }}
+        <span class="home-view__heading-dot no-select">.</span>
       </h2>
 
-      <p class="home-view__about-me">
-        Senior Web Developer at Telia Company.<br />
-        Passionate about Front-End architecture.<br />
-        Freelancer.<br />
-        A human being.
-      </p>
+      <p class="home-view__about-me" v-html="content?.description" />
 
-      <CButton class="home-view__button">Github</CButton>
-
-      <CButton class="home-view__button">LinkedIn</CButton>
-
-      <CButton class="home-view__button">Storybook</CButton>
+      <CButton
+        v-for="button in content?.buttonOptions"
+        :key="button.text"
+        class="home-view__button"
+      >
+        {{ button.text }}
+      </CButton>
 
       <div class="home-view__hashtag-list">
-        <p v-for="hashtag in hashtags" :key="hashtag">
-          <span class="home-view__hashtag">#</span>{{ hashtag }}
+        <p v-for="text in content?.hashTags" :key="text">
+          <span class="home-view__hashtag no-select">#</span>{{ text }}
         </p>
       </div>
-    </div>
+    </section>
   </main>
 </template>
 
 <script lang="ts">
 import CButton from '@/components/CButton/CButton.vue'
+import type { IContentModel } from './HomeViewContentModel'
 
 export default {
   components: {
     CButton,
   },
 
-  data() {
-    return {
-      hashtags: [
-        'TypeScript',
-        'Vue.js',
-        'Nuxt',
-        'ASP.NET',
-        'EPI Server',
-        'MS Azure',
-      ] as const,
-    }
+  props: {
+    content: {
+      type: Object as () => IContentModel,
+      default: undefined,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .home-view {
-  margin: auto;
-  height: 100vh;
-
-  &__content {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
+  height: calc(100vh - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &__heading {
     font-weight: 700;
