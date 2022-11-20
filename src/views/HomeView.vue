@@ -11,7 +11,7 @@
 
       <p class="home-view__about-me" v-html="content?.description" />
 
-      <!-- <CButton
+      <CButton
         v-for="button in content?.buttonOptions"
         :key="button.text"
         :title="button.title"
@@ -19,9 +19,7 @@
         @click="openNewTab(button.externalLink)"
       >
         {{ button.text }}
-      </CButton> -->
-
-      <CText>Hello world</CText>
+      </CButton>
 
       <ul class="home-view__hashtag-list">
         <li
@@ -37,12 +35,12 @@
 </template>
 
 <script lang="ts">
-import CText from '@/components/atoms/CText/CText.vue'
+import CButton from '@/components/CButton/CButton.vue'
 import type { IContentModel } from './HomeViewContentModel'
 
 export default {
   components: {
-    CText,
+    CButton,
   },
 
   props: {

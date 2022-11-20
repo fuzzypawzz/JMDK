@@ -1,7 +1,7 @@
 import CText from './CText.vue'
 
 export default {
-  title: 'Atoms/CText',
+  title: 'Components/CText',
   component: CText,
   argTypes: {},
 }

@@ -1,7 +1,7 @@
 import CButton, { BUTTON_VARIANT } from './CButton.vue'
 
 export default {
-  title: 'Atoms/CButton',
+  title: 'Components/CButton',
   component: CButton,
   argTypes: {},
 }
