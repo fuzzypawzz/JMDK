@@ -5,16 +5,27 @@
   border: unset;
   border-radius: 4px;
   color: white;
-  background-color: map-get($scheme, 'primary');
   text-transform: uppercase;
   cursor: pointer;
   font-size: 14px;
 
-  @include media('>tablet') {
-    font-size: 16px;
+  &--primary {
+    background-color: map-get($scheme, 'primary');
+
+    &:hover {
+      background-color: map-get($blue, 600);
+    }
   }
 
-  &:hover {
-    background-color: map-get($blue, 600);
+  &--secondary {
+    background-color: map-get($scheme, 'secondary');
+
+    &:hover {
+      background-color: map-get($orange, 800);
+    }
+  }
+
+  @include media('>tablet') {
+    font-size: 16px;
   }
 }
