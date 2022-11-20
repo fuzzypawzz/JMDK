@@ -11,7 +11,9 @@
       <CButton
         v-for="button in content?.buttonOptions"
         :key="button.text"
+        :title="button.title"
         class="home-view__button"
+        @click="openNewTab(button.externalLink)"
       >
         {{ button.text }}
       </CButton>
@@ -38,6 +40,14 @@ export default {
     content: {
       type: Object as () => IContentModel,
       default: undefined,
+    },
+  },
+
+  methods: {
+    openNewTab(url?: string) {
+      if (!url) return
+
+      window.open(url, '_blank')
     },
   },
 }

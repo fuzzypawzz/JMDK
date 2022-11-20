@@ -1,6 +1,7 @@
 interface IButtonOption {
   text: string
-  href: string
+  externalLink?: string
+  title?: string
 }
 
 export interface IContentModel {
@@ -19,15 +20,17 @@ export const contentModel: IContentModel = {
   buttonOptions: [
     {
       text: 'GitHub',
-      href: '/',
+      externalLink: 'https://github.com/fuzzypawzz',
+      title: 'Browse @fuzzypawzz on GitHub',
     },
     {
       text: 'LinkedIn',
-      href: '/',
+      externalLink: 'https://dk.linkedin.com/in/jannik-maag',
+      title: 'Visit Janniks LinkedIn profile',
     },
     {
       text: 'Storybook',
-      href: '/',
+      title: 'Discover the Storybook of this website',
     },
   ],
   hashTags: [
