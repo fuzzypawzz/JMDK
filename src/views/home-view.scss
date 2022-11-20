@@ -26,8 +26,6 @@
     &-dot {
       font-size: 54px;
       color: map-get($scheme, 'secondary');
-      position: relative;
-      right: 6px;
 
       @include media('>tablet') {
         font-size: 84px;

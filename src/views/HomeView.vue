@@ -3,7 +3,7 @@
     <section>
       <div class="home-view__heading-wrapper">
         <h2 class="home-view__heading">
-          {{ content?.heading }}
+          <span>{{ content?.heading }}</span>
           <span class="home-view__heading-dot no-select">.</span>
         </h2>
         <p class="home-view__handle">@fuzzypawzz on GitHub</p>
