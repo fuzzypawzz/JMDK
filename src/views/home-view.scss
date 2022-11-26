@@ -28,7 +28,7 @@
       color: map-get($scheme, 'secondary');
 
       @include media('>tablet') {
-        font-size: 84px;
+        font-size: 72px;
       }
     }
   }
