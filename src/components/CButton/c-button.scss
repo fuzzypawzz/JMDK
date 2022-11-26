@@ -1,29 +1,27 @@
 .c-button {
-  padding: 8px 16px;
-  border: unset;
-  border-radius: 4px;
-  color: white;
-  text-transform: uppercase;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 16px;
+  border: 2px solid map-get($dark, 500);
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
   cursor: pointer;
-  font-size: 14px;
 
-  &--primary {
-    background-color: map-get($scheme, 'primary');
+  &:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+   }
+   
+   &:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+   }
 
-    &:hover {
-      background-color: map-get($blue, 600);
-    }
-  }
+   &--primary {
+    background: map-get($scheme, primary);
+   }
 
-  &--secondary {
-    background-color: map-get($scheme, 'secondary');
-
-    &:hover {
-      background-color: map-get($orange, 800);
-    }
-  }
-
-  @include media('>tablet') {
-    font-size: 16px;
-  }
+   &--secondary {
+    background: map-get($scheme, secondary);
+   }
 }

@@ -1,6 +1,8 @@
 <template>
-  <button class="c-button" :class="buttonVariant" @click="onClick()">
-    <slot />
+  <button class="c-button" :class="buttonVariant">
+    <span class="button__top">
+      <slot />
+    </span>
   </button>
 </template>
 
@@ -29,12 +31,6 @@ export default {
   computed: {
     buttonVariant() {
       return variantDict[this.variant]
-    },
-  },
-
-  methods: {
-    onClick(): void {
-      console.log('Clicked')
     },
   },
 }
