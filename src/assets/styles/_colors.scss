@@ -20,3 +20,15 @@ $scheme: (
   primary: map-get($blue, 200),
   secondary: map-get($orange, 500),
 );
+
+:root, [data-theme="light"] {
+  --color-background: #fbfbfb;
+  --color-dark: #353535;
+  --color-primary: #C5D5E4;
+}
+
+[data-theme="dark"] {
+  --color-background: #242424;
+  --color-dark: #ece7e7;
+  --color-primary: #242424;
+}
