@@ -22,13 +22,31 @@ $scheme: (
 );
 
 :root, [data-theme="light"] {
+  // Background
   --color-background: #fbfbfb;
+  --color-grey-100: #fbfbfb;
+  --color-grey-800: #aaaaaa;
+
+  // Darks
   --color-dark: #353535;
+  --color-dark-500: #353535;
+
+  // Primary, secondary
   --color-primary: #C5D5E4;
+  --color-secondary: #fa7725;
 }
 
 [data-theme="dark"] {
+  // Background
   --color-background: #242424;
+  --color-grey-100: #fbfbfb;
+  --color-grey-800: #aaaaaa;
+
+  // Darks
   --color-dark: #ece7e7;
+  --color-dark-500: #ece7e7;
+
+  // Primary, secondary
   --color-primary: #242424;
+  --color-secondary: #fa7725;
 }

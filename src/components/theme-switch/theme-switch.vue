@@ -9,44 +9,35 @@
       @change="toggleDarkMode()"
     />
     <span class="theme-switch__slider"></span>
+    <span>{{ darkModeOn }}</span>
   </label>
 </template>
 
 <script lang="ts">
-enum THEME {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
+import { useDark, useToggle } from '@vueuse/core'
 
-const themeAttributeName = 'data-theme'
 const ariaLabel = 'dark mode toggle'
+
+const darkModeOn = useDark({
+  selector: 'html',
+  attribute: 'data-theme',
+  valueDark: 'dark',
+  valueLight: 'light',
+})
+
+const toggleDarkMode = useToggle(darkModeOn)
 
 export default {
   data() {
     return {
       ariaLabel,
-      darkModeOn: false,
+      darkModeOn,
       documentElement: document.documentElement,
     }
   },
 
-  watch: {
-    darkModeOn: {
-      immediate: true,
-      handler(darkModeOn: boolean) {
-        this.setThemeAttribute(darkModeOn ? THEME.DARK : THEME.LIGHT)
-      },
-    },
-  },
-
   methods: {
-    toggleDarkMode(): void {
-      this.darkModeOn = !this.darkModeOn
-    },
-
-    setThemeAttribute(theme: THEME): void {
-      this.documentElement.setAttribute(themeAttributeName, theme)
-    },
+    toggleDarkMode,
   },
 }
 </script>
