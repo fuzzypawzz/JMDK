@@ -52,9 +52,7 @@ export default {
 
   methods: {
     openNewTab(url?: string) {
-      if (!url) return
-
-      window.open(url, '_blank')
+      if (url) window.open(url, '_blank')
     },
   },
 }
