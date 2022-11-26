@@ -28,10 +28,11 @@ export const contentModel: IContentModel = {
       externalLink: 'https://dk.linkedin.com/in/jannik-maag',
       title: 'Visit Janniks LinkedIn profile',
     },
-    // {
-    //   text: 'Storybook',
-    //   title: 'Discover the Storybook of this website',
-    // },
+    {
+      text: 'Storybook',
+      externalLink: 'https://jmdkstorybook.netlify.app',
+      title: 'Discover the Storybook of this website',
+    },
   ],
   hashTags: [
     'TypeScript',
