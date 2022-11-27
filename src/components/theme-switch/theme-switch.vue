@@ -6,6 +6,7 @@
       role="switch"
       type="checkbox"
       :aria-checked="darkModeOn"
+      :checked="darkModeOn"
       @change="toggleDarkMode()"
     />
 
