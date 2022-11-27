@@ -1,28 +1,57 @@
+$lightMode: (
+  textAndBorderColor:  map-get($dark, 500),
+  background: (
+    primary: map-get($scheme, primary),
+    secondary: map-get($scheme, secondary)
+  )
+);
+
+$darkMode: (
+  textAndBorderColor:  map-get($greys, 100),
+  background: (
+    primary: map-get($dark, 500),
+    secondary: map-get($dark, 500),
+  )
+);
+
 .c-button {
   padding: 0.5em 1em;
   font-weight: 900;
   font-size: 16px;
-  color: var(--color-dark);
-  border: 2px solid var(--color-dark);
+  color: map-get($lightMode, textAndBorderColor);
+  border: 2px solid map-get($lightMode, textAndBorderColor);
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
   cursor: pointer;
 
+  @include darkMode {
+    color: map-get($darkMode, textAndBorderColor);
+    border: 2px solid map-get($darkMode, textAndBorderColor);
+  }
+
+  &--primary {
+    background: map-get($lightMode, background, primary);
+
+    @include darkMode {
+      background: map-get($darkMode, background, primary);
+    }
+  }
+
+  &--secondary {
+    background: map-get($lightMode, background, secondary);
+
+    @include darkMode {
+      background: map-get($darkMode, background, secondary);
+    }
+  }
+
   &:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
-   }
-   
-   &:active {
+  }
+
+  &:active {
     transform: translate(0.05em, 0.05em);
     box-shadow: 0.05em 0.05em;
-   }
-
-   &--primary {
-    background: var(--color-primary);
-   }
-
-   &--secondary {
-    background: var(--color-secondary);
-   }
+  }
 }
