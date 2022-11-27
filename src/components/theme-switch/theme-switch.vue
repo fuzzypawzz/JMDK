@@ -2,21 +2,19 @@
   <label class="theme-switch">
     <input
       class="theme-switch__checkbox"
-      :aria-label="ariaLabel"
+      aria-label="Toggle dark mode on/off"
       role="switch"
       type="checkbox"
       :aria-checked="darkModeOn"
       @change="toggleDarkMode()"
     />
+
     <span class="theme-switch__slider"></span>
-    <span>{{ darkModeOn }}</span>
   </label>
 </template>
 
 <script lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
-
-const ariaLabel = 'dark mode toggle'
 
 const darkModeOn = useDark({
   selector: 'html',
@@ -30,7 +28,6 @@ const toggleDarkMode = useToggle(darkModeOn)
 export default {
   data() {
     return {
-      ariaLabel,
       darkModeOn,
       documentElement: document.documentElement,
     }
