@@ -30,6 +30,7 @@
           <span class="home-view__hash no-select">#</span>{{ text }}
         </li>
       </ul>
+      <p style="margin-top: 16px">Website under construction</p>
     </section>
   </main>
 </template>
