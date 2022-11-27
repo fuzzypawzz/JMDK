@@ -1,5 +1,7 @@
 @import './helpers.scss';
-@import './css-reset.css';
+@import './mixins/dark-mode.scss';
+@import './colors';
+@import './spacing';
 
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&family=Neucha&display=swap');
 

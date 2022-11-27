@@ -1,0 +1,5 @@
+@mixin darkMode() {
+  @at-root #{selector-nest(':root[data-theme=dark]', &)} {
+    @content;
+  }
+}
