@@ -9,8 +9,8 @@ $lightMode: (
 $darkMode: (
   textAndBorderColor:  map-get($grey, 100),
   background: (
-    primary: map-get($dark, 700),
-    secondary: map-get($dark, 700),
+    primary: map-get($dark, 500),
+    secondary: map-get($dark, 500),
   )
 );
 

@@ -12,7 +12,13 @@ $lightMode: (
 );
 
 $darkMode: (
-
+  thumb-color: map-get($grey, 100),
+  outline-color: map-get($dark, 300),
+  switch: map-get($lightMode, switch),
+  track: (
+    color: map-get($grey, 100),
+    active-color: map-get($grey, 800),
+  )
 );
 
 .theme-switch {
@@ -22,6 +28,11 @@ $darkMode: (
   width: map-get($lightMode, switch, width);
   height: map-get($lightMode, switch, height);
 
+  @include darkMode {
+    width: map-get($darkMode, switch, width);
+    height: map-get($darkMode, switch, height);
+  }
+
   &__checkbox {
     // Hide the checkbox
     opacity: 0;
@@ -30,28 +41,48 @@ $darkMode: (
 
     &:checked + .theme-switch__slider {
       background-color: map-get($lightMode, track, active-color);
+
+      @include darkMode {
+        background-color: map-get($darkMode, track, active-color);
+      }
     }
 
     &:checked + .theme-switch__slider:before {
       transform: translateX(calc(map-get($lightMode, switch, width) - map-get($lightMode, switch, height))) translateY(-0.2em);
+      
+      @include darkMode {
+        transform: translateX(calc(map-get($darkMode, switch, width) - map-get($darkMode, switch, height))) translateY(-0.2em);
+      }
     }
 
     &:focus-visible + .theme-switch__slider {
       box-shadow: 0 0 0 2px map-get($lightMode, track, active-color);
+
+      @include darkMode {
+        box-shadow: 0 0 0 2px map-get($darkMode, track, active-color);
+      }
     }
     
     &:hover + .theme-switch__slider:before {
       /* Raise the 'dot' */
       transform: translateY(-0.3em);
-      box-shadow: 0 0.3em 0 map-get($lightMode, outline-color)
+      box-shadow: 0 0.3em 0 map-get($lightMode, outline-color);
+
+      @include darkMode {
+        box-shadow: 0 0.3em 0 map-get($darkMode, outline-color);
+      }
     }
 
     /* Raise thumb when hovered & checked */
     &:hover:checked + .theme-switch__slider:before {
       transform: translateX(calc(map-get($lightMode, switch, width) - map-get($lightMode, switch, height))) translateY(-0.3em);
-      box-shadow: 0 0.3em 0 map-get($lightMode, outline-color);     
+      box-shadow: 0 0.3em 0 map-get($lightMode, outline-color);
+      
+      @include darkMode {
+        transform: translateX(calc(map-get($darkMode, switch, width) - map-get($darkMode, switch, height))) translateY(-0.3em);
+        box-shadow: 0 0.3em 0 map-get($darkMode, outline-color);  
+      }
     }
-
   }
 
   &__slider {
@@ -67,6 +98,12 @@ $darkMode: (
     transition: .15s;
     border-radius: map-get($lightMode, switch, height);
 
+    @include darkMode {
+      border: 2px solid map-get($darkMode, outline-color);
+      background-color: map-get($darkMode, track, color);
+      border-radius: map-get($darkMode, switch, height);
+    }
+
     &:before {
       box-sizing: border-box;
       position: absolute;
@@ -81,6 +118,14 @@ $darkMode: (
       transform: translateY(-0.2em);
       box-shadow: 0 0.2em 0 map-get($lightMode, outline-color);
       transition: .15s;
+
+      @include darkMode {
+        height: map-get($darkMode, switch, height);
+        width: map-get($darkMode, switch, height);
+        border: 2px solid map-get($darkMode, outline-color);
+        background-color: map-get($darkMode, thumb-color);
+        box-shadow: 0 0.2em 0 map-get($darkMode, outline-color);
+      }
     }
   }
 }
