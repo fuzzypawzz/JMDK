@@ -1,4 +1,4 @@
-import { BUTTON_VARIANT } from '@/components/CButton/CButton.vue'
+import { BUTTON_VARIANT } from '@/components/button-component/button-component.vue'
 
 interface IButtonOption {
   text: string
@@ -9,6 +9,7 @@ interface IButtonOption {
 
 export interface IContentModel {
   heading: string
+  handle: string
   description: string
   buttonOptions: IButtonOption[]
   hashTags: string[]
@@ -16,6 +17,7 @@ export interface IContentModel {
 
 export const contentModel: IContentModel = {
   heading: 'Jannik Maag',
+  handle: '@fuzzypawzz on GitHub',
   description: `Senior Web Developer at Telia Company.<br />
   Passionate about Front-End architecture.<br />
   Freelancer.<br />

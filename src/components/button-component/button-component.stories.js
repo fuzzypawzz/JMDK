@@ -1,17 +1,17 @@
-import CButton, { BUTTON_VARIANT } from './CButton.vue'
+import ButtonComponent, { BUTTON_VARIANT } from './button-component.vue'
 
 export default {
-  title: 'Components/CButton',
-  component: CButton,
+  title: 'Components/ButtonComponent',
+  component: ButtonComponent,
   argTypes: {},
 }
 
 const Template = (args) => ({
-  components: { CButton },
+  components: { ButtonComponent },
   setup() {
     return { args }
   },
-  template: '<CButton v-bind="args">Click me!</CButton>',
+  template: '<ButtonComponent v-bind="args">Click me!</ButtonComponent>',
 })
 
 export const Primary = Template.bind({})
