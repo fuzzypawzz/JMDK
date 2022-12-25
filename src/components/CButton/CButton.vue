@@ -1,8 +1,6 @@
 <template>
   <button class="c-button" :class="buttonVariant">
-    <span class="button__top">
-      <slot />
-    </span>
+    <slot />
   </button>
 </template>
 
@@ -14,7 +12,7 @@ export enum BUTTON_VARIANT {
   SECONDARY = 'SECONDARY',
 }
 
-const variantDict: IDictionary<string> = {
+const classNameDict: IDictionary<string> = {
   [BUTTON_VARIANT.PRIMARY]: 'c-button--primary',
   [BUTTON_VARIANT.SECONDARY]: 'c-button--secondary',
 }
@@ -30,7 +28,7 @@ export default {
 
   computed: {
     buttonVariant() {
-      return variantDict[this.variant]
+      return classNameDict[this.variant]
     },
   },
 }

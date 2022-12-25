@@ -16,6 +16,7 @@
         :key="button.text"
         :title="button.title"
         class="home-view__button"
+        :variant="button.variant"
         @click="openNewTab(button.externalLink)"
       >
         {{ button.text }}
