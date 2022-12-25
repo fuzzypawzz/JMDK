@@ -1,11 +1,15 @@
+import { BUTTON_VARIANT } from '@/components/button-component/button-component.vue'
+
 interface IButtonOption {
   text: string
   externalLink?: string
   title?: string
+  variant?: BUTTON_VARIANT
 }
 
 export interface IContentModel {
   heading: string
+  handle: string
   description: string
   buttonOptions: IButtonOption[]
   hashTags: string[]
@@ -13,6 +17,7 @@ export interface IContentModel {
 
 export const contentModel: IContentModel = {
   heading: 'Jannik Maag',
+  handle: '@fuzzypawzz on GitHub',
   description: `Senior Web Developer at Telia Company.<br />
   Passionate about Front-End architecture.<br />
   Freelancer.<br />
@@ -22,16 +27,19 @@ export const contentModel: IContentModel = {
       text: 'My GitHub',
       externalLink: 'https://github.com/fuzzypawzz',
       title: 'Browse @fuzzypawzz on GitHub',
+      variant: BUTTON_VARIANT.SECONDARY,
     },
     {
       text: 'My profile on LinkedIn',
       externalLink: 'https://dk.linkedin.com/in/jannik-maag',
       title: 'Visit Janniks LinkedIn profile',
+      variant: BUTTON_VARIANT.SECONDARY,
     },
     {
       text: 'Storybook',
       externalLink: 'https://jmdkstorybook.netlify.app',
       title: 'Discover the Storybook of this website',
+      variant: BUTTON_VARIANT.SECONDARY,
     },
   ],
   hashTags: [

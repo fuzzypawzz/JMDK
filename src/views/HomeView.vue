@@ -4,22 +4,26 @@
       <div class="home-view__heading-wrapper">
         <h2 class="home-view__heading">
           <span>{{ content?.heading }}</span>
+
           <span class="home-view__heading-dot no-select">.</span>
         </h2>
-        <p class="home-view__handle">@fuzzypawzz on GitHub</p>
+
+        <p class="home-view__handle">{{ content?.handle }}</p>
       </div>
 
+      <!-- XSS risk analysis: Controlled source (content file import in router) -->
       <p class="home-view__about-me" v-html="content?.description" />
 
-      <CButton
+      <ButtonComponent
         v-for="button in content?.buttonOptions"
         :key="button.text"
         :title="button.title"
         class="home-view__button"
+        :variant="button.variant"
         @click="openNewTab(button.externalLink)"
       >
         {{ button.text }}
-      </CButton>
+      </ButtonComponent>
 
       <ul class="home-view__hashtag-list">
         <li
@@ -35,12 +39,12 @@
 </template>
 
 <script lang="ts">
-import CButton from '@/components/CButton/CButton.vue'
+import ButtonComponent from '@/components/button-component/button-component.vue'
 import type { IContentModel } from './HomeViewContentModel'
 
 export default {
   components: {
-    CButton,
+    ButtonComponent,
   },
 
   props: {

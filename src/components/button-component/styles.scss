@@ -1,0 +1,26 @@
+.button-component {
+  box-shadow: #094c66 4px 4px 0px;
+  border-radius: 6px;
+  padding: 10px 12px;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  min-width: 120px;
+  transition: transform 200ms, box-shadow 200ms;
+  cursor: pointer;
+   
+  &:active {
+    transform: translateY(4px) translateX(4px);
+    box-shadow: #094c66 0px 0px 0px;
+  }
+
+  &--primary {
+    background-color: map-get($scheme, primary);
+    color: map-get($dark, 500);
+  }
+
+  &--secondary {
+    background-color: map-get($scheme, secondary);
+    color: white;
+  }
+}
