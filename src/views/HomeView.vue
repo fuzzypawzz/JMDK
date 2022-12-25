@@ -11,7 +11,7 @@
         <p class="home-view__handle">{{ content?.handle }}</p>
       </div>
 
-      <!-- XSS risk analysis: Controlled source (content file import) -->
+      <!-- XSS risk analysis: Controlled source (content file import in router) -->
       <p class="home-view__about-me" v-html="content?.description" />
 
       <ButtonComponent
