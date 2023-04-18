@@ -20,7 +20,7 @@
         :title="button.title"
         class="home-view__button"
         :variant="button.variant"
-        @click="openNewTab(button.externalLink)"
+        @click="presenter.openInNewTab(button.externalLink)"
       >
         {{ button.text }}
       </JButton>
@@ -40,24 +40,27 @@
 
 <script lang="ts">
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
-import type { HomeViewContentModel } from './content/default-content'
+import { container } from '@/JMDK.Core/ioc'
+import { HomeViewPresenter } from './presenter/home-view-presenter'
 
 export default {
   components: {
     JButton,
   },
 
-  props: {
-    content: {
-      type: Object as () => HomeViewContentModel,
-      default: undefined,
-    },
+  data() {
+    const presenter = container.get<HomeViewPresenter>(HomeViewPresenter)
+    const viewModel = presenter.loadViewModel()
+
+    return {
+      presenter,
+      viewModel,
+      content: viewModel.content,
+    }
   },
 
-  methods: {
-    openNewTab(url?: string) {
-      if (url) window.open(url, '_blank')
-    },
+  mounted() {
+    this.presenter.attachViewControls({})
   },
 }
 </script>
