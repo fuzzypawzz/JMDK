@@ -4,6 +4,11 @@ const Symbols = {
   Router: Symbol('Router'),
 }
 
-const containerModule = new ContainerModule(() => {})
+// Router is rebound in the bind-framework-dependencies plugin
+const mockedVueRouter = {}
+
+const containerModule = new ContainerModule((bind) => {
+  bind(Symbols.Router).toConstantValue(mockedVueRouter)
+})
 
 export default { Symbols, containerModule }
