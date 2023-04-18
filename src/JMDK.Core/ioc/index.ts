@@ -13,12 +13,8 @@ import { Symbols } from './symbols'
  * As a general guideline, you should only use the get<T> method to resolve dependencies
  * from the composition root (here).
  *
- * Read more in our Inversion Of Control documentation to see some examples of how
- * we use the get<T> method to resolve dependencies in the framework components, making the
- * container act as a bridge between the framework and our logic/store/services etc.
- *
  * @example
- * container.get<OrderFlowPresenter>(Symbols.OrderFlowPresenter);
+ * container.get<TPresenter>(Symbols.Presenter);
  */
 const container = new Container()
 
