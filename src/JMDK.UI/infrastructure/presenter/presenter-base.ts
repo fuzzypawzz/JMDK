@@ -1,4 +1,4 @@
-import type { SubscriberNotification } from '@/JMDK.Core/helpers/observable/observable.types'
+// import type { SubscriberNotification } from '@/JMDK.Core/helpers/observable/observable.types'
 import { injectable } from 'inversify'
 import { observable, autorun } from 'mobx'
 import type { FrameworkSpecificView } from './presenter-base.types'
@@ -13,7 +13,7 @@ import { getErrorMessage } from './methods/get-error-message'
 export abstract class PresenterBase<
   TView,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TEvent extends SubscriberNotification | never,
+  TEvent extends /* SubscriberNotification */ object | never,
   TViewModel extends object
 > {
   /**
