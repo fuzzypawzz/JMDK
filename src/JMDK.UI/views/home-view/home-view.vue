@@ -3,19 +3,19 @@
     <section>
       <div class="home-view__heading-wrapper">
         <h2 class="home-view__heading">
-          <span>{{ content?.heading }}</span>
+          <span>{{ viewModel.content.heading }}</span>
 
           <span class="home-view__heading-dot no-select">.</span>
         </h2>
 
-        <p class="home-view__handle">{{ content?.handle }}</p>
+        <p class="home-view__handle">{{ viewModel.content.handle }}</p>
       </div>
 
       <!-- XSS risk analysis: Controlled source (content file import in router) -->
-      <p class="home-view__about-me" v-html="content?.description" />
+      <p class="home-view__about-me" v-html="viewModel.content.description" />
 
-      <JButton
-        v-for="button in content?.buttonOptions"
+      <j-button
+        v-for="button in viewModel.content.buttonOptions"
         :key="button.text"
         :title="button.title"
         class="home-view__button"
@@ -23,12 +23,12 @@
         @click="presenter.openInNewTab(button.externalLink)"
       >
         {{ button.text }}
-      </JButton>
+      </j-button>
 
       <ul class="home-view__hashtag-list">
         <li
           class="home-view__hashtag-list-item"
-          v-for="text in content?.hashTags"
+          v-for="text in viewModel.content.hashTags"
           :key="text"
         >
           <span class="home-view__hash no-select">#</span>{{ text }}
@@ -49,18 +49,20 @@ export default {
   },
 
   data() {
-    const presenter = container.get<HomeViewPresenter>(HomeViewPresenter)
-    const viewModel = presenter.loadViewModel()
+    const presenter = container.get(HomeViewPresenter)
 
     return {
       presenter,
-      viewModel,
-      content: viewModel.content,
+      viewModel: presenter.loadViewModel(),
     }
   },
 
   mounted() {
-    this.presenter.attachViewControls({})
+    this.presenter.attachView({})
+  },
+
+  beforeUnmount() {
+    this.presenter.detachView()
   },
 }
 </script>

@@ -83,11 +83,11 @@ export abstract class PresenterBase<
   }
 
   /**
-   * @method attachViewControls
+   * @method attachView
    * @param view A reference to the view.
    * @description Attaches the view and calls the init method.
    */
-  public attachViewControls(view: typeof this.view): this {
+  public attachView(view: typeof this.view): this {
     if (this.isDifferentView(view)) {
       throw new Error(this.presenterErrors.VIEW_ALREADY_ATTACHED)
     }
@@ -99,12 +99,12 @@ export abstract class PresenterBase<
   }
 
   /**
-   * @method detachViewControls
+   * @method detachView
    * @description
    * Detaches/removes the reference to the view, resets the view model, cleans up the reactive listeners
    * and calls the reset method.
    */
-  public detachViewControls(): this {
+  public detachView(): this {
     this.view = null
     this.onViewDestroyed?.()
     this.cleanUpReactiveSubscribers()
