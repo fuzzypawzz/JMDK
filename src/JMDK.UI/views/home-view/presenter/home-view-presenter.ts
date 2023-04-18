@@ -4,6 +4,7 @@ import {
   contentModel,
   type HomeViewContentModel,
 } from '@/JMDK.UI/views/home-view/content/default-content'
+import { openInNewTab } from '@/JMDK.UI/helpers/browser/open-in-new-tab'
 
 type ViewModel = {
   content: HomeViewContentModel
@@ -23,9 +24,7 @@ export class HomeViewPresenter extends PresenterBase<{}, never, ViewModel> {
     content: contentModel,
   }
 
-  public openInNewTab(url?: string): void {
-    if (url) window.open(url, '_blank')
-  }
+  public openInNewTab = openInNewTab
 
   protected onViewCreated = undefined
   protected onViewDestroyed = undefined
