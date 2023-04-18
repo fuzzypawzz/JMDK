@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { RouterView } from 'vue-router'
-import { contentModel } from './AppContentModel'
+import { contentModel } from '../AppContentModel'
 
 export default {
   components: { RouterView },

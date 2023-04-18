@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from '@/App.vue'
+import App from '@/JMDK.UI/App.vue'
 import router from '@/JMDK.Core/router'
 
 import '@/assets/styles/main.scss'
