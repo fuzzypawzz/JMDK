@@ -1,5 +1,5 @@
-import HomeView from './HomeView.vue'
-import { contentModel } from './HomeViewContentModel'
+import HomeView from '@/JMDK.UI/views/home-view/home-view.vue'
+import { contentModel } from '@/JMDK.UI/views/home-view/content/default-content'
 
 export default {
   title: 'Pages/HomeView',

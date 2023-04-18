@@ -1,21 +1,15 @@
 import { BUTTON_VARIANT } from '@/JMDK.UI/components/button-component/button-component.vue'
+import type { Button } from '@/JMDK.UI/types/content/button.types'
 
-interface IButtonOption {
-  text: string
-  externalLink?: string
-  title?: string
-  variant?: BUTTON_VARIANT
-}
-
-export interface IContentModel {
+export type HomeViewContentModel = {
   heading: string
   handle: string
   description: string
-  buttonOptions: IButtonOption[]
+  buttonOptions: Button[]
   hashTags: string[]
 }
 
-export const contentModel: IContentModel = {
+export const contentModel: HomeViewContentModel = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
   description: `Senior Web Developer at Telia Company.<br />

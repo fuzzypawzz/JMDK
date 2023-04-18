@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/JMDK.UI/views/HomeView.vue'
-import { contentModel as homeViewContentModel } from '@/JMDK.UI/views/HomeViewContentModel'
+import HomeView from '@/JMDK.UI/views/home-view/home-view.vue'
+import { contentModel as homeViewContentModel } from '@/JMDK.UI/views/home-view/content/default-content'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

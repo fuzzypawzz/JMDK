@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import ButtonComponent from '@/JMDK.UI/components/button-component/button-component.vue'
-import type { IContentModel } from './HomeViewContentModel'
+import type { HomeViewContentModel } from './content/default-content'
 
 export default {
   components: {
@@ -49,7 +49,7 @@ export default {
 
   props: {
     content: {
-      type: Object as () => IContentModel,
+      type: Object as () => HomeViewContentModel,
       default: undefined,
     },
   },
