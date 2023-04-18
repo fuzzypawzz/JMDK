@@ -4,6 +4,7 @@
 $base-unit: 4px;
 
 /*
+  @author - Jannik Maag
   Calculates and returns values in pixels based on the base-unit
   @example space(10) => '40px'
   @example space(2, 4) => '8px 16px'
