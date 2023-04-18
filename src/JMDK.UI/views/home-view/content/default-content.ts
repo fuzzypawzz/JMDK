@@ -39,6 +39,7 @@ export const contentModel: HomeViewContentModel = {
   hashTags: [
     'TypeScript',
     'Vue.js',
+    'React',
     'Swift',
     'Nuxt',
     'ASP.NET',
