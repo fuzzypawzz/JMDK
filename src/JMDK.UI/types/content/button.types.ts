@@ -1,4 +1,4 @@
-import type { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/j-button.vue'
+import type { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/constants/button-variant'
 
 export type Button = {
   text: string
