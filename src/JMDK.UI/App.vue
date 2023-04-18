@@ -1,22 +1,15 @@
 <template>
   <div class="app__wrapper">
-    <header class="app__header no-select">{{ contentModel.headerText }}</header>
+    <header class="app__header no-select">JMDK</header>
     <RouterView />
   </div>
 </template>
 
 <script lang="ts">
 import { RouterView } from 'vue-router'
-import { contentModel } from '../AppContentModel'
 
 export default {
   components: { RouterView },
-
-  data() {
-    return {
-      contentModel,
-    }
-  },
 }
 </script>
 
