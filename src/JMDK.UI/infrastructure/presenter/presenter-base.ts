@@ -1,4 +1,3 @@
-// import type { SubscriberNotification } from '@/JMDK.Core/helpers/observable/observable.types'
 import { injectable } from 'inversify'
 import { observable, autorun } from 'mobx'
 import type { FrameworkSpecificView } from './presenter-base.types'
@@ -13,15 +12,9 @@ import { getErrorMessage } from './methods/get-error-message'
 export abstract class PresenterBase<
   TView,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TEvent extends /* SubscriberNotification */ object | never,
+  TEvent extends object | never,
   TViewModel extends object
 > {
-  /**
-   * @property
-   * @description
-   * A reference to the UI framework component instance.
-   * The presenter can use it call methods and access state in the component.
-   */
   private _view!: FrameworkSpecificView<TView>
 
   protected get view(): Readonly<typeof this._view> {
@@ -34,26 +27,12 @@ export abstract class PresenterBase<
 
   private exposedViewModelReplica = {} as TViewModel
 
+  private subscriptionDisposers = [] as Array<() => void>
+
   protected abstract data: Partial<TViewModel>
   protected abstract onViewCreated?(): void
   protected abstract onViewDestroyed?(): void
 
-  /**
-   * @property
-   * @description
-   * A collection of disposers that should be called to unsubscribe
-   * to observables.
-   */
-  private subscriptionDisposers = [] as Array<() => void>
-
-  /**
-   * @method updateViewModel
-   * @description
-   * Subscribes to changes in observable state and automatically updates the view model.
-   * Call this method from the presenter constructor.
-   *
-   * @param fn a function that returns an object of observable state.
-   */
   protected updateViewModel(fn: () => TViewModel): void {
     if (this.isViewModelAvailable) {
       throw new Error(this.presenterErrors.VIEWMODEL_ALREADY_ATTACHED)
@@ -69,11 +48,6 @@ export abstract class PresenterBase<
     })
   }
 
-  /**
-   * @method loadViewModel
-   * @description Loads the view model. Do not mutate the view model from the view itself.
-   * @returns a clean view model with it's initial state.
-   */
   public loadViewModel(): Readonly<typeof this.exposedViewModelReplica> {
     if (!this.isViewModelAvailable) {
       throw new Error(this.presenterErrors.VIEWMODEL_NOT_REGISTRERED)
@@ -82,11 +56,6 @@ export abstract class PresenterBase<
     return this.exposedViewModelReplica
   }
 
-  /**
-   * @method attachView
-   * @param view A reference to the view.
-   * @description Attaches the view and calls the init method.
-   */
   public attachView(view: typeof this.view): this {
     if (this.isDifferentView(view)) {
       throw new Error(this.presenterErrors.VIEW_ALREADY_ATTACHED)
@@ -98,12 +67,6 @@ export abstract class PresenterBase<
     return this
   }
 
-  /**
-   * @method detachView
-   * @description
-   * Detaches/removes the reference to the view, resets the view model, cleans up the reactive listeners
-   * and calls the reset method.
-   */
   public detachView(): this {
     this.view = null
     this.onViewDestroyed?.()
@@ -125,24 +88,10 @@ export abstract class PresenterBase<
     }
   }
 
-  /**
-   * @method autorun
-   * @param fn mobx reactive view
-   * @description
-   * Adds a callback to the autorun function and automatically
-   * keeps track of the disposer.
-   */
   protected autorun(fn: (...args: unknown[]) => unknown): void {
     this.subscriptionDisposers.push(autorun(fn))
   }
 
-  /**
-   * @method cleanUpReactiveSubscribers
-   * @description
-   * Unsubscribes to all observables made through the presenter.
-   * This is done to ensure that the garbage collection works to
-   * prevent memory leaks.
-   */
   private cleanUpReactiveSubscribers(): void {
     this.subscriptionDisposers.forEach((dispose) => dispose())
   }
