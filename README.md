@@ -1,6 +1,38 @@
-# JMDK - JannikMaag.dk
+# JMDK - jannikmaag.dk
 
 My personal website.
+
+## Directory
+
+The source code is found in the src directory.
+
+### Framework agnostic architecture:
+
+This app is using the Vue.JS framework as rendering mechanism of the UI.
+
+The UI layer is built on the MVP (Model-View-Presenter) design pattern, which means that logic and state management is separated from the framework.
+
+The architecture means that it is easy to switch out the UI framework, from Vue.JS to React for example.
+
+### Layers
+
+The code is separated into layers inspired by an onion architecture.
+
+> This applications code is separated into layers which is reflected by the folders in src.
+> As of now the application is quite small, meaning that there is (currently) no need for
+> a data store, services or a logic layer.
+
+- JMDK.Core
+- JMDK.UI
+- JMDK.Logic (when needed)
+- JMDK.Store (when needed)
+- JMDK.Services (when needed)
+
+### Inversion Of Control
+
+Dependencies are managed with an IOC container.
+
+The configuration can be found in the Core layer.
 
 ## Project Setup
 
@@ -12,6 +44,12 @@ npm install
 
 ```sh
 npm run dev
+```
+
+### Run Storybook with Hot-Reload
+
+```sh
+npm run storybook
 ```
 
 ### Type-Check, Compile and Minify for Production
