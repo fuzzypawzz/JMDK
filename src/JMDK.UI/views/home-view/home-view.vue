@@ -14,7 +14,7 @@
       <!-- XSS risk analysis: Controlled source (content file import in router) -->
       <p class="home-view__about-me" v-html="content?.description" />
 
-      <ButtonComponent
+      <JButton
         v-for="button in content?.buttonOptions"
         :key="button.text"
         :title="button.title"
@@ -23,7 +23,7 @@
         @click="openNewTab(button.externalLink)"
       >
         {{ button.text }}
-      </ButtonComponent>
+      </JButton>
 
       <ul class="home-view__hashtag-list">
         <li
@@ -39,12 +39,12 @@
 </template>
 
 <script lang="ts">
-import ButtonComponent from '@/JMDK.UI/components/button-component/button-component.vue'
+import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
 import type { HomeViewContentModel } from './content/default-content'
 
 export default {
   components: {
-    ButtonComponent,
+    JButton,
   },
 
   props: {

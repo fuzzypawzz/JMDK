@@ -1,4 +1,4 @@
-import { BUTTON_VARIANT } from '@/JMDK.UI/components/button-component/button-component.vue'
+import { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/j-button.vue'
 import type { Button } from '@/JMDK.UI/types/content/button.types'
 
 export type HomeViewContentModel = {

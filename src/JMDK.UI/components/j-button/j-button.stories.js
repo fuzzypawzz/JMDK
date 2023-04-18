@@ -1,17 +1,17 @@
-import ButtonComponent, { BUTTON_VARIANT } from './button-component.vue'
+import JButton, { BUTTON_VARIANT } from './j-button.vue'
 
 export default {
-  title: 'Components/ButtonComponent',
-  component: ButtonComponent,
+  title: 'Components/JButton',
+  component: JButton,
   argTypes: {},
 }
 
 const Template = (args) => ({
-  components: { ButtonComponent },
+  components: { JButton },
   setup() {
     return { args }
   },
-  template: '<ButtonComponent v-bind="args">Click me!</ButtonComponent>',
+  template: '<JButton v-bind="args">Click me!</JButton>',
 })
 
 export const Primary = Template.bind({})

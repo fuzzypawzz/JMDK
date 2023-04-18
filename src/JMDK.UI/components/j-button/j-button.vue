@@ -1,5 +1,5 @@
 <template>
-  <button class="button-component" :class="variantModifier">
+  <button class="j-button" :class="variantModifier">
     <slot />
   </button>
 </template>
@@ -13,8 +13,8 @@ export enum BUTTON_VARIANT {
 }
 
 const modifiers: Dictionary<string> = {
-  [BUTTON_VARIANT.PRIMARY]: 'button-component--primary',
-  [BUTTON_VARIANT.SECONDARY]: 'button-component--secondary',
+  [BUTTON_VARIANT.PRIMARY]: 'j-button--primary',
+  [BUTTON_VARIANT.SECONDARY]: 'j-button--secondary',
 }
 
 const isValidButtonVariant = (value: BUTTON_VARIANT): boolean =>
@@ -37,4 +37,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./styles.scss" />
+<style lang="scss" src="./j-button.scss" />
