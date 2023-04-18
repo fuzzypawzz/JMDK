@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-import type { IDictionary } from '@/types'
+import type { Dictionary } from '@/JMDK.UI/types'
 
 export enum BUTTON_VARIANT {
   PRIMARY = 'PRIMARY',
   SECONDARY = 'SECONDARY',
 }
 
-const modifiers: IDictionary<string> = {
+const modifiers: Dictionary<string> = {
   [BUTTON_VARIANT.PRIMARY]: 'button-component--primary',
   [BUTTON_VARIANT.SECONDARY]: 'button-component--secondary',
 }

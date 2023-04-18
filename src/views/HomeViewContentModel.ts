@@ -1,4 +1,4 @@
-import { BUTTON_VARIANT } from '@/components/button-component/button-component.vue'
+import { BUTTON_VARIANT } from '@/JMDK.UI/components/button-component/button-component.vue'
 
 interface IButtonOption {
   text: string

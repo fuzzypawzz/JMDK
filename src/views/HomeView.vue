@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import ButtonComponent from '@/components/button-component/button-component.vue'
+import ButtonComponent from '@/JMDK.UI/components/button-component/button-component.vue'
 import type { IContentModel } from './HomeViewContentModel'
 
 export default {
