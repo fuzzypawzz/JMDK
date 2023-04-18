@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from '@/JMDK.UI/App.vue'
 import router from '@/JMDK.Core/router'
 
-import '@/assets/styles/main.scss'
+import '@/JMDK.UI/styles/main.scss'
 
 const app = createApp(App)
 

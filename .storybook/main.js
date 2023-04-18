@@ -17,7 +17,7 @@ module.exports = {
       plugins: [],
     })
   },
-  staticDirs: ['../src/assets'],
+  staticDirs: ['../src/JMDK.UI/static'],
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
