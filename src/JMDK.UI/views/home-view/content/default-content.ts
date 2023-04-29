@@ -1,15 +1,7 @@
 import { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/constants/button-variant'
-import type { Button } from '@/JMDK.UI/types/content/button.types'
+import type { ViewModel } from '../presenter/view-model'
 
-export type HomeViewContentModel = {
-  heading: string
-  handle: string
-  description: string
-  buttonOptions: Button[]
-  hashTags: string[]
-}
-
-export const contentModel: HomeViewContentModel = {
+export const contentModel: ViewModel['content'] = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
   description: `Senior Web Developer at Telia Company.<br />

@@ -42,27 +42,22 @@
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
 import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './presenter/home-view-presenter'
+import { presenterMixin } from '@/JMDK.UI/infrastructure/presenter'
 
 export default {
   components: {
     JButton,
   },
 
+  mixins: [presenterMixin],
+
   data() {
     const presenter = container.get(HomeViewPresenter)
 
     return {
       presenter,
-      viewModel: presenter.loadViewModel(),
+      viewModel: presenter.viewModel.snapshot(),
     }
-  },
-
-  mounted() {
-    this.presenter.attachView({})
-  },
-
-  beforeUnmount() {
-    this.presenter.detachView()
   },
 }
 </script>

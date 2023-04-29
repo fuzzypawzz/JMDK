@@ -8,7 +8,7 @@ it('has the expected content in the view model', () => {
 
   homeViewPresenter.attachView({})
 
-  const viewModel = homeViewPresenter.loadViewModel()
+  const viewModel = homeViewPresenter.viewModel.snapshot()
 
   expect(viewModel.content).toMatchObject(contentModel)
 })

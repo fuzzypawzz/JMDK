@@ -1,8 +1,8 @@
 import { injectable } from 'inversify'
-import { observable, autorun } from 'mobx'
+import { action, autorun, computed, makeObservable } from 'mobx'
 import type { FrameworkSpecificView } from './presenter-base.types'
-import { cloneDeep, isEmpty } from 'lodash'
 import { getErrorMessage } from './methods/get-error-message'
+import { recursivelyAccessDeepProperties } from './reactivity-helpers/access-deep-properties'
 
 /**
  * @author Jannik Maag (fuzzypawzz)
@@ -17,75 +17,74 @@ export abstract class PresenterBase<
 > {
   private _view!: FrameworkSpecificView<TView>
 
-  protected get view(): Readonly<typeof this._view> {
+  protected get view(): Readonly<FrameworkSpecificView<TView>> {
     return this._view
   }
 
-  private set view(view: typeof this.view | null) {
-    this._view = view as typeof this.view
+  private set view(view: FrameworkSpecificView<TView> | null) {
+    this._view = view as FrameworkSpecificView<TView>
   }
-
-  private exposedViewModelReplica = {} as TViewModel
 
   private subscriptionDisposers = [] as Array<() => void>
 
   protected abstract data: Partial<TViewModel>
   protected abstract onViewCreated?(): void
   protected abstract onViewDestroyed?(): void
+  protected abstract vm(): TViewModel
 
-  protected updateViewModel(fn: () => TViewModel): void {
-    if (this.isViewModelAvailable) {
-      throw new Error(this.presenterErrors.VIEWMODEL_ALREADY_ATTACHED)
-    }
+  constructor() {
+    makeObservable(this)
+  }
 
-    // Every presenter doesn't need to wrap 'data' in an observable
-    this.data = observable(this.data)
+  public viewModel = {
+    snapshot: () => {
+      this.checkForVmProperty()
+
+      return this.getReadOnlyViewModel()
+    },
+
+    subscribe: this.subscribeToViewModel.bind(this),
+  }
+
+  @action
+  private subscribeToViewModel(
+    effect: (vm: Readonly<TViewModel>) => void
+  ): void {
+    this.checkForVmProperty()
 
     this.autorun(() => {
-      this.updateViewModelReplica({
-        ...fn(),
-      })
+      const vm = this.getReadOnlyViewModel()
+
+      // Mobx only tracks accessed properties
+      recursivelyAccessDeepProperties(vm)
+
+      effect(vm)
     })
   }
 
-  public loadViewModel(): Readonly<typeof this.exposedViewModelReplica> {
-    if (!this.isViewModelAvailable) {
-      throw new Error(this.presenterErrors.VIEWMODEL_NOT_REGISTRERED)
-    }
-
-    return this.exposedViewModelReplica
+  private getReadOnlyViewModel(): Readonly<TViewModel> {
+    return Object.freeze(this.vm())
   }
 
-  public attachView(view: typeof this.view): this {
+  private checkForVmProperty(): void {
+    if (!this.vm || typeof this.vm !== 'function') {
+      throw new Error(this.presenterErrors.VIEW_MODEL_FUNCTION_MISSING)
+    }
+  }
+
+  public attachView(view: FrameworkSpecificView<TView>): void {
     if (this.isDifferentView(view)) {
       throw new Error(this.presenterErrors.VIEW_ALREADY_ATTACHED)
     }
 
     this.view = view
     this.onViewCreated?.()
-
-    return this
   }
 
-  public detachView(): this {
+  public detachView(): void {
     this.view = null
     this.onViewDestroyed?.()
     this.cleanUpReactiveSubscribers()
-
-    return this
-  }
-
-  private updateViewModelReplica(
-    viewModel: typeof this.exposedViewModelReplica
-  ): void {
-    const internalViewModel = cloneDeep(viewModel)
-    const exposedViewModel = this.exposedViewModelReplica
-
-    let key: keyof typeof internalViewModel
-
-    for (key in internalViewModel) {
-      exposedViewModel[key] = internalViewModel[key]
-    }
   }
 
   protected autorun(fn: (...args: unknown[]) => unknown): void {
@@ -96,7 +95,7 @@ export abstract class PresenterBase<
     this.subscriptionDisposers.forEach((dispose) => dispose())
   }
 
-  private isDifferentView(view: typeof this.view): boolean {
+  private isDifferentView(view: FrameworkSpecificView<TView>): boolean {
     if (!this.view) return false
 
     return this.view._uid !== view._uid
@@ -105,10 +104,6 @@ export abstract class PresenterBase<
   private get componentName(): string | undefined {
     // Vue framework specific
     return (this.view as any)?.$options?.name
-  }
-
-  private get isViewModelAvailable(): boolean {
-    return !isEmpty(this.exposedViewModelReplica)
   }
 
   private get presenterErrors(): ReturnType<typeof getErrorMessage> {

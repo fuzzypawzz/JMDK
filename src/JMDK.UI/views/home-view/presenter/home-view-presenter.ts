@@ -1,27 +1,19 @@
-import { PresenterBase } from '@/JMDK.UI/infrastructure/presenter/presenter-base'
 import { injectable } from 'inversify'
-import {
-  contentModel,
-  type HomeViewContentModel,
-} from '@/JMDK.UI/views/home-view/content/default-content'
+import { contentModel } from '@/JMDK.UI/views/home-view/content/default-content'
 import { openInNewTab } from '@/JMDK.UI/helpers/browser/open-in-new-tab'
-
-type ViewModel = {
-  content: HomeViewContentModel
-}
-
+import { observable } from 'mobx'
+import { PresenterBase } from '@/JMDK.UI/infrastructure/presenter'
+import type { ViewModel } from './view-model'
 @injectable()
 export class HomeViewPresenter extends PresenterBase<{}, never, ViewModel> {
-  constructor() {
-    super()
-
-    this.updateViewModel(() => ({
-      content: this.data.content,
-    }))
-  }
-
-  protected data = {
+  protected data = observable({
     content: contentModel,
+  })
+
+  protected vm(): ViewModel {
+    return {
+      content: this.data.content,
+    }
   }
 
   public openInNewTab = openInNewTab
