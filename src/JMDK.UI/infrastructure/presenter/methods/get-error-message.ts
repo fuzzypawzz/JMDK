@@ -8,7 +8,7 @@ export function getErrorMessage(
 ): Record<ERROR_IDENTIFIER, string> {
   return {
     [ERROR_IDENTIFIER.VIEW_MODEL_INVALID]: `
-        Presenter: You must implement a view model as a public computed property on the presenter.
+        Presenter: You must implement a view model for "${componentName}" as a public computed property on the presenter.
         Make sure to wrap the 'viewModel' property in vue.computed().
       `,
 

@@ -29,13 +29,12 @@ export abstract class PresenterBase<
   public abstract viewModel: ComputedRef
 
   public attachView(view: FrameworkSpecificView<TView>): void {
-    this.checkViewModel()
-    
     if (this.isDifferentView(view)) {
       throw new Error(this.presenterErrors.VIEW_ALREADY_ATTACHED)
     }
 
     this.view = view
+    this.checkViewModel()
     this.onViewCreated?.()
   }
 
@@ -53,12 +52,13 @@ export abstract class PresenterBase<
   private isDifferentView(view: FrameworkSpecificView<TView>): boolean {
     if (!this.view) return false
 
-    return this.view._uid !== view._uid
+    return this.view.uid !== view.uid
   }
 
   private get componentName(): string | undefined {
-    // Vue framework specific
-    return (this.view as any)?.$options?.name
+    // Vue-3 specific property that contains a component identifier.
+    // TODO: Write a test for this, so I will know if there's a breaking change to the Vue later on.
+    return this.view?.type.__name
   }
 
   private get presenterErrors(): ReturnType<typeof getErrorMessage> {
