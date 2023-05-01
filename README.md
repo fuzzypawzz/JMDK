@@ -8,9 +8,9 @@ The source code is found in the src directory.
 
 ### UI Architecture:
 
-This app is using the Vue.JS framework as rendering mechanism of the UI.
+This app is using the Vue.js framework as rendering mechanism of the UI.
 
-The UI layer is built on the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
+The UI layer is built using the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
 
 ### Layers
 
