@@ -4,7 +4,6 @@ const config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/src/$1',
-    '^vue$': 'vue/dist/vue.common.js',
   },
   testTimeout: 10000,
   moduleFileExtensions: ['ts', 'js', 'vue', 'json'],

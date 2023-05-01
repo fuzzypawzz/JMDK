@@ -38,28 +38,16 @@
   </main>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
 import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './presenter/home-view-presenter'
-import { presenterMixin } from '@/JMDK.UI/infrastructure/presenter'
+import { usePresenterSetup } from '@/JMDK.UI/infrastructure/presenter/methods/use-presenter-setup'
 
-export default {
-  components: {
-    JButton,
-  },
+const presenter = container.get(HomeViewPresenter)
+const viewModel = presenter.viewModel
 
-  mixins: [presenterMixin],
-
-  data() {
-    const presenter = container.get(HomeViewPresenter)
-
-    return {
-      presenter,
-      viewModel: presenter.viewModel.snapshot(),
-    }
-  },
-}
+usePresenterSetup(presenter)
 </script>
 
 <style lang="scss" src="./home-view.scss" scoped />

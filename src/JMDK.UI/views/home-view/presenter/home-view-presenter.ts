@@ -1,20 +1,24 @@
 import { injectable } from 'inversify'
 import { contentModel } from '@/JMDK.UI/views/home-view/content/default-content'
 import { openInNewTab } from '@/JMDK.UI/helpers/browser/open-in-new-tab'
-import { observable } from 'mobx'
 import { PresenterBase } from '@/JMDK.UI/infrastructure/presenter'
 import type { ViewModel } from './view-model'
+import { computed, reactive, readonly } from 'vue'
+
+type View = {}
+type PresenterEvent = never
+
 @injectable()
-export class HomeViewPresenter extends PresenterBase<{}, never, ViewModel> {
-  protected data = observable({
+export class HomeViewPresenter extends PresenterBase<View, PresenterEvent> {
+  private data = reactive({
     content: contentModel,
   })
 
-  protected vm(): ViewModel {
+  public viewModel = computed<Readonly<ViewModel>>(() => {
     return {
       content: this.data.content,
     }
-  }
+  })
 
   public openInNewTab = openInNewTab
 
