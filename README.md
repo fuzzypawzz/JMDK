@@ -6,13 +6,11 @@ My personal website.
 
 The source code is found in the src directory.
 
-### Framework agnostic architecture:
+### UI Architecture:
 
 This app is using the Vue.JS framework as rendering mechanism of the UI.
 
-The UI layer is built on the MVP (Model-View-Presenter) design pattern, which means that logic and state management is separated from the framework.
-
-The architecture means that it is easy to switch out the UI framework, from Vue.JS to React for example.
+The UI layer is built on the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
 
 ### Layers
 
