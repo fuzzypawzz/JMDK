@@ -1,4 +1,7 @@
-import { createArrayTransitionGenerator } from '@/JMDK.UI/helpers/arrays/array-transition-generator'
+import {
+  ERROR,
+  createArrayTransitionGenerator,
+} from '@/JMDK.UI/helpers/arrays/array-transition-generator'
 import { expect, it } from '@jest/globals'
 
 const fruits = ['apple', 'pear', 'grape', 'mango']
@@ -27,4 +30,24 @@ it('starts by yielding from the desired index', () => {
 
   expect(generator.next().value).toBe(fruits[2])
   expect(generator.next().value).toBe(fruits[3])
+})
+
+it('throws if the provided array is empty', () => {
+  const generator = createArrayTransitionGenerator({
+    array: [],
+    startFromIndex: 0,
+  })
+
+  expect(() => generator.next()).toThrow(ERROR.EMPTY_ARRAY)
+})
+
+it('throws if trying to start from an index greather than array length', () => {
+  const generator = createArrayTransitionGenerator({
+    array: fruits,
+    startFromIndex: fruits.length + 1,
+  })
+
+  expect(() => generator.next()).toThrow(
+    ERROR.START_INDEX_GREATER_THAN_ARRAY_LENGTH
+  )
 })
