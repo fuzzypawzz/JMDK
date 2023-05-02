@@ -1,4 +1,5 @@
-import { container, Symbols } from '.'
+import { useRootStore } from '@/JMDK.Store/root'
+import { Symbols, container } from '.'
 
 /**
  * @author Jannik Maag (fuzzypawzz)
@@ -8,11 +9,14 @@ import { container, Symbols } from '.'
  * to the IOC container.
  */
 export default {
-  install: (app: any, options: any) => {
+  install: (app: unknown, options: any) => {
     const { router } = options
+
+    const rootStore = useRootStore()
 
     if (!router) throw new Error('Could not load the router dependency.')
 
     container.rebind(Symbols.Core.Router).toConstantValue(router)
+    container.rebind('store').toConstantValue(rootStore)
   },
 }
