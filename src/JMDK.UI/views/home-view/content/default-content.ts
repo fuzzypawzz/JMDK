@@ -4,10 +4,16 @@ import type { ViewModel } from '../presenter/view-model'
 export const contentModel: ViewModel['content'] = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
-  description: `Senior Web Developer at Telia Company.<br />
-  Passionate about Front-End architecture.<br />
-  Freelancer.<br />
-  A human being.`,
+  description: `I'm a Web developer and Front-End architect.<br />
+    Passionate about <span id="passion"></span><br />
+    Freelancer.<br />
+    A human being.`,
+  textTransitionValues: [
+    'framework agnostic design.',
+    'UI application architecture.',
+    'clean code.',
+    'test driven development.',
+  ],
   buttonOptions: [
     {
       text: 'My GitHub',

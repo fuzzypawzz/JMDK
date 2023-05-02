@@ -5,9 +5,11 @@ type HomeViewContent = {
   handle: string
   description: string
   buttonOptions: Button[]
+  textTransitionValues: string[]
   hashTags: string[]
 }
 
 export type ViewModel = {
   content: HomeViewContent
+  textTransitionTargetElementId: string
 }

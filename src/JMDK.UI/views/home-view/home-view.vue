@@ -11,8 +11,13 @@
         <p class="home-view__handle">{{ viewModel.content.handle }}</p>
       </div>
 
-      <!-- XSS risk analysis: Controlled source (content file import in router) -->
-      <p class="home-view__about-me" v-html="viewModel.content.description" />
+      <text-transition
+        :values="viewModel.content.textTransitionValues"
+        :element-id="viewModel.textTransitionTargetElementId"
+      >
+        <!-- XSS: Controlled source (static content file import) -->
+        <p class="home-view__about-me" v-html="viewModel.content.description" />
+      </text-transition>
 
       <j-button
         v-for="button in viewModel.content.buttonOptions"
@@ -43,6 +48,7 @@ import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
 import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './presenter/home-view-presenter'
 import { usePresenterSetup } from '@/JMDK.UI/infrastructure/presenter/methods/use-presenter-setup'
+import TextTransition from '@/JMDK.UI/components/text-transition/text-transition.vue'
 
 const presenter = container.get(HomeViewPresenter)
 const viewModel = presenter.viewModel

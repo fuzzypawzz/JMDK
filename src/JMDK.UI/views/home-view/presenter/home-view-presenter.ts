@@ -17,6 +17,7 @@ export class HomeViewPresenter extends PresenterBase<View, PresenterEvent> {
   public viewModel = computed<Readonly<ViewModel>>(() => {
     return {
       content: this.data.content,
+      textTransitionTargetElementId: 'passion',
     }
   })
 
