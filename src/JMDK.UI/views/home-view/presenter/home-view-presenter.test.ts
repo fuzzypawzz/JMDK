@@ -7,14 +7,14 @@ beforeAll(() => {
   container.snapshot()
 })
 
-afterAll(() => {
-  container.restore()
-})
+// afterAll(() => {
+//   container.restore()
+// })
 
 it('has the expected content in the view model', () => {
   const homeViewPresenter = container.get(HomeViewPresenter)
 
-  homeViewPresenter.attachView({} as any)
+  homeViewPresenter.attachView({} as an)
 
   const viewModel = homeViewPresenter.viewModel.value
 
