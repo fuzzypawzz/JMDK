@@ -34,7 +34,7 @@ export abstract class PresenterBase<
     }
 
     this.view = view
-    this.checkViewModel()
+    this.validateViewModel()
     this.onViewCreated?.()
   }
 
@@ -43,7 +43,7 @@ export abstract class PresenterBase<
     this.onViewDestroyed?.()
   }
 
-  private checkViewModel(): void {
+  private validateViewModel(): void {
     if (!isReadonly(this.viewModel)) {
       throw new Error(this.presenterErrors.VIEW_MODEL_INVALID)
     }
