@@ -2,7 +2,7 @@ import { BUTTON_VARIANT } from './constants/button-variant'
 import JButton from './j-button.vue'
 
 export default {
-  title: 'Components/JButton',
+  title: 'components/j-button',
   component: JButton,
   argTypes: {},
 }
