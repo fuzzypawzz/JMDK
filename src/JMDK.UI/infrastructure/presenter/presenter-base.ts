@@ -11,7 +11,7 @@ import { isReadonly, type ComputedRef } from 'vue'
 export abstract class PresenterBase<
   TView,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TEvent extends object | never,
+  TEvent extends object | never
 > {
   private _view!: FrameworkSpecificView<TView>
 
@@ -25,7 +25,7 @@ export abstract class PresenterBase<
 
   protected abstract onViewCreated?(): void
   protected abstract onViewDestroyed?(): void
-  
+
   public abstract viewModel: ComputedRef
 
   public attachView(view: FrameworkSpecificView<TView>): void {
