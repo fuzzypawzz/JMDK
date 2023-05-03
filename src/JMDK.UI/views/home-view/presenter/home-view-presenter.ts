@@ -21,7 +21,4 @@ export class HomeViewPresenter extends PresenterBase<View, PresenterEvent> {
   })
 
   public openInNewTab = openInNewTab
-
-  protected onViewCreated = undefined
-  protected onViewDestroyed = undefined
 }

@@ -23,8 +23,8 @@ export abstract class PresenterBase<
     this._view = view as FrameworkSpecificView<TView>
   }
 
-  protected abstract onViewCreated?(): void
-  protected abstract onViewDestroyed?(): void
+  protected onViewCreated?(): void
+  protected onViewDestroyed?(): void
 
   public abstract viewModel: ComputedRef
 
