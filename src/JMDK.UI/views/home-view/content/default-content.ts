@@ -36,7 +36,7 @@ export const contentModel: ViewModel['content'] = {
     'Nuxt',
     'ASP.NET',
     'Flutter',
-    'EPI Server',
+    'EPiServer',
     'MS Azure',
   ],
 }
