@@ -11,7 +11,7 @@ import { isReadonly, type ComputedRef } from 'vue'
 export abstract class PresenterBase<
   TView,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  TEvent extends object | never,
+  TEvent extends object | never
 > {
   private _view!: FrameworkSpecificView<TView>
 
@@ -23,9 +23,9 @@ export abstract class PresenterBase<
     this._view = view as FrameworkSpecificView<TView>
   }
 
-  protected abstract onViewCreated?(): void
-  protected abstract onViewDestroyed?(): void
-  
+  protected onViewCreated?(): void
+  protected onViewDestroyed?(): void
+
   public abstract viewModel: ComputedRef
 
   public attachView(view: FrameworkSpecificView<TView>): void {
@@ -34,7 +34,7 @@ export abstract class PresenterBase<
     }
 
     this.view = view
-    this.checkViewModel()
+    this.validateViewModel()
     this.onViewCreated?.()
   }
 
@@ -43,7 +43,7 @@ export abstract class PresenterBase<
     this.onViewDestroyed?.()
   }
 
-  private checkViewModel(): void {
+  private validateViewModel(): void {
     if (!isReadonly(this.viewModel)) {
       throw new Error(this.presenterErrors.VIEW_MODEL_INVALID)
     }
