@@ -5,12 +5,12 @@ type Symbols = {
   /**
    * Dependency injections available from the Core layer.
    */
-  Core: typeof coreDependencies['Symbols']
+  Core: (typeof coreDependencies)['Symbols']
 
   /**
    * Dependency injections available from the UI layer.
    */
-  UI: typeof uiDependencies['Symbols']
+  UI: (typeof uiDependencies)['Symbols']
 }
 
 /**
