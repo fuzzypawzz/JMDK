@@ -14,7 +14,7 @@ beforeAll(() => {
 it('has the expected content in the view model', () => {
   const homeViewPresenter = container.get(HomeViewPresenter)
 
-  homeViewPresenter.attachView({} as an)
+  homeViewPresenter.attachView({} as any)
 
   const viewModel = homeViewPresenter.viewModel.value
 
