@@ -3,9 +3,9 @@ import { HomeViewPresenter } from './home-view-presenter'
 import { expect, it, beforeAll, afterAll } from '@jest/globals'
 import { contentModel } from '../content/default-content'
 
-// beforeAll(() => {
-//   container.snapshot()
-// })
+beforeAll(() => {
+  container.snapshot()
+})
 
 afterAll(() => {
   container.restore()
