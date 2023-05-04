@@ -29,7 +29,7 @@ The UI layer is built using the MVP (Model-View-Presenter) design pattern which 
 
 Logic and state handling is written in plain testable JavaScript objects (presenters).
 
-The UI framework components are kept dumb. They receive their view models from the presenters and are generally only concerned with reactively rendering the DOM when the view models change.
+The UI framework components are kept dumb. They receive their view models from the presenters and are generally only concerned with reactively rendering the DOM and routing DOM events to the presenters.
 
 ### Inversion Of Control
 
