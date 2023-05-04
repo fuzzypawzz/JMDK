@@ -25,7 +25,9 @@ The code is separated into layers inspired by an onion architecture.
 
 This app is using the Vue.js framework as rendering mechanism of the UI.
 
-The UI layer is built using the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
+The UI layer is built using the MVP (Model-View-Presenter) design pattern.
+
+Logic and state handling are kept separated from the view in plain testable JavaScript objects (presenters).
 
 ### Inversion Of Control
 
@@ -33,9 +35,7 @@ Dependencies are managed with an IOC container.
 
 The configuration can be found in the Core layer.
 
-### Configuration
-
-#### Styles
+### Styles
 
 The styles are located inside the assets folder.
 
