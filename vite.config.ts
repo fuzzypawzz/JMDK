@@ -15,8 +15,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-          @import './src/JMDK.UI/styles/_spacing.scss';
-          @import './src/JMDK.UI/styles/_colors.scss';
+          @import './src/JMDK.UI/assets/styles/main.scss';
           @import 'include-media';
         `,
       },
