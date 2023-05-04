@@ -25,9 +25,11 @@ The code is separated into layers inspired by an onion architecture.
 
 This app is using the Vue.js framework as rendering mechanism of the UI.
 
-The UI layer is built using the MVP (Model-View-Presenter) design pattern.
+The UI layer is built using the MVP (Model-View-Presenter) design pattern which ensures that concerns are separated.
 
-Logic and state handling are kept separated from the view in plain testable JavaScript objects (presenters).
+Logic and state handling is written in plain testable JavaScript objects (presenters).
+
+The UI framework components are kept dumb. They receive their view models from the presenters and are generally only concerned with reactively rendering the DOM when the view models change.
 
 ### Inversion Of Control
 
