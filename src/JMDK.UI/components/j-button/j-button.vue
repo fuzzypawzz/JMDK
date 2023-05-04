@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import type { Dictionary } from '@/JMDK.UI/types'
-import { BUTTON_VARIANT } from './constants/button-variant'
+import { BUTTON_VARIANT } from './j-button.constants'
 
 const modifiers: Dictionary<string> = {
   [BUTTON_VARIANT.PRIMARY]: 'j-button--primary',

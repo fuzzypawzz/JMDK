@@ -1,10 +1,10 @@
-import type { Button } from '@/JMDK.UI/types/content/button.types'
+import type { Content } from '@/JMDK.UI/types/content'
 
 type HomeViewContent = {
   heading: string
   handle: string
   description: string
-  buttonOptions: Button[]
+  buttonOptions: Content.Button[]
   hashTags: string[]
 }
 

@@ -1,4 +1,4 @@
-import { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/constants/button-variant'
+import { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/j-button.constants'
 import type { ViewModel } from '../presenter/view-model'
 
 export const contentModel: ViewModel['content'] = {
