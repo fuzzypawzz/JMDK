@@ -2,8 +2,8 @@ import 'reflect-metadata'
 
 import { Container } from 'inversify'
 
-import coreDependencies from '@/JMDK.Core/dependency-injection'
-import uiDependencies from '@/JMDK.UI/dependency-injection'
+import coreDependencies from '@/JMDK.Core/infrastructure/dependency-injection'
+import uiDependencies from '@/JMDK.UI/infrastructure/dependency-injection'
 
 import { Symbols } from './symbols'
 

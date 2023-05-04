@@ -1,7 +1,7 @@
 import {
   ERROR,
   createArrayTransitionGenerator,
-} from '@/JMDK.UI/helpers/arrays/array-transition-generator'
+} from '@/JMDK.UI/infrastructure/helpers/arrays/array-transition-generator'
 import { expect, it } from '@jest/globals'
 
 const fruits = ['apple', 'pear', 'grape', 'mango']

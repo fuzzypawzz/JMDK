@@ -5,9 +5,7 @@ export function usePresenterSetup<TPresenter extends PresenterBase<any, any>>(
   presenter: TPresenter
 ) {
   onMounted(() => {
-    const vueComponentInstance = getCurrentInstance()
-
-    presenter.attachView(vueComponentInstance)
+    presenter.attachView(getCurrentInstance())
   })
 
   onBeforeUnmount(() => {

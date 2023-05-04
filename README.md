@@ -8,25 +8,24 @@ My personal website.
 
 The source code is found in the src directory.
 
-### UI Architecture:
-
-This app is using the Vue.js framework as rendering mechanism of the UI.
-
-The UI layer is built using the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
-
 ### Layers
 
 The code is separated into layers inspired by an onion architecture.
 
 > This applications code is separated into layers which is reflected by the folders in src.
 > As of now the application is quite small, meaning that there is (currently) no need for
-> a data store, services or a logic layer.
+> the data layer that holds the store and services.
 
 - JMDK.Core
 - JMDK.UI
-- JMDK.Logic (when needed)
-- JMDK.Store (when needed)
-- JMDK.Services (when needed)
+- JMDK.Logic (application specific logic)
+- JMDK.Data (store and services)
+
+### UI Architecture:
+
+This app is using the Vue.js framework as rendering mechanism of the UI.
+
+The UI layer is built using the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
 
 ### Inversion Of Control
 
