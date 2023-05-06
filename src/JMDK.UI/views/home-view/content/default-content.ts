@@ -4,8 +4,8 @@ import type { ViewModel } from '../presenter/view-model'
 export const contentModel: ViewModel['content'] = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
-  description: `Senior Web developer and Front-End architect.<br />
-  Passionate about framework agnostic design.<br />
+  description: `Senior Web developer<br />
+  Passionate about Front-End architecture.<br />
   Freelancer.<br />
   A human being.`,
   buttonOptions: [
