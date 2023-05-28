@@ -18,5 +18,5 @@ it('has the expected content in the view model', () => {
 
   const viewModel = homeViewPresenter.viewModel.value
 
-  expect(viewModel.content).toMatchObject(contentModel)
+  expect(viewModel).toMatchObject(contentModel)
 })

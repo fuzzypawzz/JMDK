@@ -1,7 +1,6 @@
 import { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/j-button.constants'
-import type { ViewModel } from '../presenter/view-model'
 
-export const contentModel: ViewModel['content'] = {
+export const contentModel = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
   description: `Senior Web developer<br />

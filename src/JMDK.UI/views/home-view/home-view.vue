@@ -3,19 +3,19 @@
     <section>
       <div class="home-view__heading-wrapper">
         <h2 class="home-view__heading">
-          <span>{{ viewModel.content.heading }}</span>
+          <span>{{ viewModel.heading }}</span>
 
           <span class="home-view__heading-dot no-select">.</span>
         </h2>
 
-        <p class="home-view__handle">{{ viewModel.content.handle }}</p>
+        <p class="home-view__handle">{{ viewModel.handle }}</p>
       </div>
 
       <!-- XSS risk analysis: Controlled source (content file import in router) -->
-      <p class="home-view__about-me" v-html="viewModel.content.description" />
+      <p class="home-view__about-me" v-html="viewModel.description" />
 
       <j-button
-        v-for="button in viewModel.content.buttonOptions"
+        v-for="button in viewModel.buttonOptions"
         :key="button.text"
         :title="button.title"
         class="home-view__button"
@@ -28,10 +28,10 @@
       <ul class="home-view__hashtag-list">
         <li
           class="home-view__hashtag-list-item"
-          v-for="text in viewModel.content.hashTags"
-          :key="text"
+          v-for="hashTag in viewModel.hashTags"
+          :key="hashTag"
         >
-          <span class="home-view__hash no-select">#</span>{{ text }}
+          <span class="home-view__hash no-select">#</span>{{ hashTag }}
         </li>
       </ul>
     </section>
@@ -42,12 +42,13 @@
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
 import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './presenter/home-view-presenter'
-import { usePresenterSetup } from '@/JMDK.UI/infrastructure/presenter/methods/use-presenter-setup'
 
 const presenter = container.get(HomeViewPresenter)
 const viewModel = presenter.viewModel
 
-usePresenterSetup(presenter)
+presenter.attachView({
+  props: {},
+})
 </script>
 
 <style lang="scss" src="./home-view.scss" scoped />
