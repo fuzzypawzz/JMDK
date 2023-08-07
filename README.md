@@ -43,7 +43,7 @@ The styles are located inside the assets folder.
 
 The main.scss file imports all foundational styles for the application.
 
-The app uses SFC (Single File Components) which all have their own dedicated stylesheets located relative to the components.
+The app uses SFC (Single File Components) which all have their own dedicated stylesheets located relative to each component.
 
 ## Project Setup
 
