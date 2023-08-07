@@ -1,19 +1,12 @@
 $heightExcludingNav: calc(100vh - 48px);
 
 .home-view {
+  height: $heightExcludingNav;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @include media('portrait') {
-    height: $heightExcludingNav;
-  }
-
-  @include media('>tablet') {
-    height: $heightExcludingNav;
-  }
-
-  @include media('handheld', 'landscape') {
+  @include media('landscape', 'height<=600px') {
     height: unset;
   }
 
