@@ -5,6 +5,7 @@ $heightExcludingNav: calc(100vh - 48px);
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: -webkit-fill-available;
 
   @include media('landscape', 'height<=600px') {
     height: unset;
