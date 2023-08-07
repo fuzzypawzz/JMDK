@@ -1,11 +1,11 @@
-$heightExcludingNav: calc(100vh - 48px);
+$navHeight: 48px;
+$window-height-var: --window-height;
 
 .home-view {
-  height: $heightExcludingNav;
+  height: calc(var($window-height-var, 1vh) * 100 - $navHeight);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: -webkit-fill-available;
 
   @include media('landscape', 'height<=600px') {
     height: unset;
