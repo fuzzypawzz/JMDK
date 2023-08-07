@@ -3,7 +3,7 @@ import { BUTTON_VARIANT } from '@/JMDK.UI/components/j-button/j-button.constants
 export const contentModel = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
-  description: `Senior Web developer<br />
+  description: `Senior Web developer.<br />
   Passionate about Front-End architecture.<br />
   Freelancer.<br />
   A human being.`,
