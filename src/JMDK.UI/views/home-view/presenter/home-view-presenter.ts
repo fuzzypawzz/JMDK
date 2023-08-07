@@ -5,6 +5,7 @@ import { PresenterBase } from '@/JMDK.UI/infrastructure/presenter'
 import type { ViewModel } from './view-model'
 import { reactive } from 'vue'
 import { readonlyComputed } from '@/JMDK.Core/helpers/readonly-computed'
+import { useWindowHeightVariable } from '@/JMDK.UI/infrastructure/helpers/browser/window-height'
 
 type View = {
   props: {}
@@ -12,6 +13,14 @@ type View = {
 
 @injectable()
 export class HomeViewPresenter extends PresenterBase<View> {
+  constructor() {
+    super()
+    const removeEventListeners = useWindowHeightVariable()
+    this.disposers.push(removeEventListeners)
+  }
+
+  private disposers: Array<() => void> = []
+
   private state = reactive({
     content: contentModel,
   })
@@ -21,6 +30,10 @@ export class HomeViewPresenter extends PresenterBase<View> {
       ...this.state.content,
     }
   })
+
+  public destroy() {
+    this.disposers.forEach((dispose) => dispose())
+  }
 
   public openInNewTab = openInNewTab
 }
