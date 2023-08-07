@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './home-view-presenter'
 import { expect, it, beforeAll, afterAll } from '@jest/globals'

@@ -42,9 +42,12 @@
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
 import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './presenter/home-view-presenter'
+import { onBeforeUnmount } from 'vue'
 
 const presenter = container.get(HomeViewPresenter)
 const viewModel = presenter.viewModel
+
+onBeforeUnmount(() => presenter.destroy())
 
 presenter.attachView({
   props: {},
