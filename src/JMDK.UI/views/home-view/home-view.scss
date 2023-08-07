@@ -1,8 +1,21 @@
+$heightExcludingNav: calc(100vh - 48px);
+
 .home-view {
-  height: calc(100vh - 48px);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include media('portrait') {
+    height: $heightExcludingNav;
+  }
+
+  @include media('>tablet') {
+    height: $heightExcludingNav;
+  }
+
+  @include media('handheld', 'landscape') {
+    height: unset;
+  }
 
   &__heading {
     font-weight: 700;
@@ -22,7 +35,6 @@
       }
     }
     
-    // .home-view__heading-dot
     &-dot {
       font-size: 54px;
       color: map-get($scheme, 'secondary');
@@ -45,7 +57,6 @@
     }
   }
 
-  // .home-view__about-me
   &__about-me {
     font-size: 18px;
     margin-bottom: space(4);
@@ -69,7 +80,6 @@
       font-size: 16px;
     }
     
-    // .home-view__hashtag-list-item
     &-item {
       display: inline-block;
       margin: space(0, 1) 2px 0;
@@ -81,13 +91,11 @@
     }
   }
 
-  // .home-view__hash
   &__hash {
     color: map-get($greys, 800);
     margin-right: 2px;
   }
 
-  // .home-view__button
   &__button {
     margin: space(0, 3, 3, 0);
   }
