@@ -2,7 +2,7 @@ import {
   ERROR,
   createArrayTransitionGenerator,
 } from '@/JMDK.UI/infrastructure/helpers/arrays/array-transition-generator'
-import { expect, it } from '@jest/globals'
+import { expect, it } from 'vitest'
 
 const fruits = ['apple', 'pear', 'grape', 'mango']
 
