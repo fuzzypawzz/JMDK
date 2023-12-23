@@ -1,10 +1,8 @@
-import { injectable } from 'inversify'
 import type { ComputedRef } from 'vue'
 
 /**
  * @author Jannik Maag (fuzzypawzz)
  */
-@injectable()
 export abstract class PresenterBase<TView extends { props: object }> {
   private _view!: TView
 

@@ -1,4 +1,3 @@
-import { injectable } from 'inversify'
 import { contentModel } from '@/JMDK.UI/views/home-view/content/default-content'
 import { openInNewTab } from '@/JMDK.UI/infrastructure/helpers/browser/open-in-new-tab'
 import { PresenterBase } from '@/JMDK.UI/infrastructure/presenter'
@@ -11,7 +10,6 @@ type View = {
   props: {}
 }
 
-@injectable()
 export class HomeViewPresenter extends PresenterBase<View> {
   constructor() {
     super()
@@ -27,7 +25,7 @@ export class HomeViewPresenter extends PresenterBase<View> {
 
   public viewModel = readonlyComputed<ViewModel>(() => {
     return {
-      ...this.state.content,
+      content: this.state.content,
     }
   })
 
