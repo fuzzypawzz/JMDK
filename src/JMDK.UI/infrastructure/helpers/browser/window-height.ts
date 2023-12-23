@@ -4,7 +4,7 @@ export function useWindowHeightVariable() {
   function setWindowHeightVariable() {
     document.documentElement.style.setProperty(
       WINDOW_HEIGHT_CSS_VAR,
-      `${window.innerHeight / 100}px`
+      `${window.innerHeight / 100}px`,
     )
   }
 
