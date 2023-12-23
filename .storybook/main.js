@@ -5,7 +5,7 @@ const { loadConfigFromFile, mergeConfig } = require('vite')
 module.exports = {
   async viteFinal(config, { configType }) {
     const { config: userConfig } = await loadConfigFromFile(
-      path.resolve(__dirname, '../vite.config.ts')
+      path.resolve(__dirname, '../vite.config.mts')
     )
 
     // Return a custom config
