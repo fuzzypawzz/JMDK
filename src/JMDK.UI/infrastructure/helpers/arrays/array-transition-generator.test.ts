@@ -48,6 +48,6 @@ it('throws if trying to start from an index greather than array length', () => {
   })
 
   expect(() => generator.next()).toThrow(
-    ERROR.START_INDEX_GREATER_THAN_ARRAY_LENGTH
+    ERROR.START_INDEX_GREATER_THAN_ARRAY_LENGTH,
   )
 })
