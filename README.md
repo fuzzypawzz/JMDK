@@ -31,12 +31,6 @@ Logic and state handling is written in reactive JavaScript objects (referred to 
 
 The UI framework components are kept dumb. They receive their view models from the presenters and are generally only concerned with reactively rendering the DOM and routing DOM events to the presenters.
 
-### Inversion Of Control
-
-Dependencies are managed with an IOC container.
-
-The configuration can be found in the Core layer.
-
 ### Styles
 
 The styles are located inside the assets folder.
