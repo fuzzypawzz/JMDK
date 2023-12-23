@@ -16,6 +16,7 @@
 
       <j-button
         v-for="button in viewModel.content.buttonOptions"
+        :data-test="button.testId"
         :key="button.text"
         :title="button.title"
         class="home-view__button"
