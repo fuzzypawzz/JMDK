@@ -18,7 +18,7 @@
     "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
-    "include-media": "^1.4.10",
+    "include-media": "^2.0.0",
     "jest-environment-jsdom": "^29.6.2",
     "vue": "^3.2.41",
     "vue-router": "^4.1.5"
