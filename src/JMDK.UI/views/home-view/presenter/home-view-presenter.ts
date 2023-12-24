@@ -6,7 +6,7 @@ import { readonlyComputed } from '@/JMDK.Core/helpers/readonly-computed'
 import { useWindowHeightCssVariable } from '@/JMDK.UI/infrastructure/helpers/browser/window-height'
 
 type View = {
-  props: {}
+  props: Record<string, never>
 }
 
 export class HomeViewPresenter extends PresenterBase<View> {

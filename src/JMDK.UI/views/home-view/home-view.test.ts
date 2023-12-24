@@ -1,6 +1,4 @@
 import { beforeAll, it, vi, expect, afterEach } from 'vitest'
-import { mount } from '@vue/test-utils'
-import HomeView from '@/JMDK.UI/views/home-view/home-view.vue'
 import { TESTING_ID } from '@/JMDK.UI/views/home-view/home-view.constants'
 import { testHarness } from '@/JMDK.UI/views/home-view/home-view.test-harness'
 

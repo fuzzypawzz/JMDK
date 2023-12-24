@@ -11,7 +11,7 @@ export function* createArrayTransitionGenerator({
   array,
   startFromIndex,
 }: {
-  array: any[]
+  array: unknown[]
   startFromIndex: number
 }) {
   if (array.length === 0) throw new Error(ERROR.EMPTY_ARRAY)
