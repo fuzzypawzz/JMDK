@@ -21,6 +21,7 @@
 
       <j-button
         v-for="button in viewModel.content.buttonOptions"
+        :data-test="button.testId"
         :key="button.text"
         :title="button.title"
         class="home-view__button"
@@ -33,10 +34,10 @@
       <ul class="home-view__hashtag-list">
         <li
           class="home-view__hashtag-list-item"
-          v-for="text in viewModel.content.hashTags"
-          :key="text"
+          v-for="hashTag in viewModel.content.hashTags"
+          :key="hashTag"
         >
-          <span class="home-view__hash no-select">#</span>{{ text }}
+          <span class="home-view__hash no-select">#</span>{{ hashTag }}
         </li>
       </ul>
     </section>
@@ -45,15 +46,18 @@
 
 <script setup lang="ts">
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
-import { container } from '@/JMDK.Core/ioc'
 import { HomeViewPresenter } from './presenter/home-view-presenter'
-import { usePresenterSetup } from '@/JMDK.UI/infrastructure/presenter/methods/use-presenter-setup'
+import { onBeforeUnmount } from 'vue'
 import TextTransition from '@/JMDK.UI/components/text-transition/text-transition.vue'
 
-const presenter = container.get(HomeViewPresenter)
+const presenter = new HomeViewPresenter()
 const viewModel = presenter.viewModel
 
-usePresenterSetup(presenter)
+onBeforeUnmount(() => presenter.destroy())
+
+presenter.attachView({
+  props: {},
+})
 </script>
 
 <style lang="scss" src="./home-view.scss" scoped />

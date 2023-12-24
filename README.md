@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f0f6e118-d0e4-470c-a328-d1a3c6aaca3f/deploy-status?branch=main)](https://app.netlify.com/sites/jmdk/deploys)
+
 # JMDK - jannikmaag.dk
 
 My personal website.
@@ -6,31 +8,36 @@ My personal website.
 
 The source code is found in the src directory.
 
-### UI Architecture:
-
-This app is using the Vue.js framework as rendering mechanism of the UI.
-
-The UI layer is built using the MVP (Model-View-Presenter) design pattern, which means that logic and state management is written in plain testable JavaScript objects which are kept separate from the views.
-
 ### Layers
 
 The code is separated into layers inspired by an onion architecture.
 
 > This applications code is separated into layers which is reflected by the folders in src.
 > As of now the application is quite small, meaning that there is (currently) no need for
-> a data store, services or a logic layer.
+> the data layer that holds the store and services.
 
 - JMDK.Core
 - JMDK.UI
-- JMDK.Logic (when needed)
-- JMDK.Store (when needed)
-- JMDK.Services (when needed)
+- JMDK.Logic (application specific logic)
+- JMDK.Data (store and services)
 
-### Inversion Of Control
+### UI Architecture:
 
-Dependencies are managed with an IOC container.
+This app is using the Vue.js framework as rendering mechanism of the UI.
 
-The configuration can be found in the Core layer.
+The UI layer is built using the MVP (Model-View-Presenter) design pattern which ensures that concerns are separated.
+
+Logic and state handling is written in reactive JavaScript objects (referred to as the presenters).
+
+The UI framework components are kept dumb. They receive their view models from the presenters and are generally only concerned with reactively rendering the DOM and routing DOM events to the presenters.
+
+### Styles
+
+The styles are located inside the assets folder.
+
+The main.scss file imports all foundational styles for the application.
+
+The app uses SFC (Single File Components) which all have their own dedicated stylesheets located relative to each component.
 
 ## Project Setup
 

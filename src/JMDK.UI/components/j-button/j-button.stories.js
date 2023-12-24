@@ -1,4 +1,4 @@
-import { BUTTON_VARIANT } from './constants/button-variant'
+import { BUTTON_VARIANT } from './j-button.constants'
 import JButton from './j-button.vue'
 
 export default {

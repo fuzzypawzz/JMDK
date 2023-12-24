@@ -1,25 +1,37 @@
-import { injectable } from 'inversify'
 import { contentModel } from '@/JMDK.UI/views/home-view/content/default-content'
-import { openInNewTab } from '@/JMDK.UI/helpers/browser/open-in-new-tab'
 import { PresenterBase } from '@/JMDK.UI/infrastructure/presenter'
-import type { ViewModel } from './view-model'
-import { computed, reactive } from 'vue'
+import { reactive } from 'vue'
+import { readonlyComputed } from '@/JMDK.Core/helpers/readonly-computed'
+import { useWindowHeightCssVariable } from '@/JMDK.UI/infrastructure/helpers/browser/window-height'
+import { openInNewTab } from '@/JMDK.UI/infrastructure/helpers/browser/open-in-new-tab'
 
-type View = {}
-type PresenterEvent = never
+type View = {
+  props: Record<string, never>
+}
 
-@injectable()
-export class HomeViewPresenter extends PresenterBase<View, PresenterEvent> {
-  private data = reactive({
-    content: contentModel,
-  })
+export class HomeViewPresenter extends PresenterBase<View> {
+  constructor() {
+    super()
+    const removeEventListeners = useWindowHeightCssVariable()
+    this.disposers.push(removeEventListeners)
+  }
 
-  public viewModel = computed<Readonly<ViewModel>>(() => {
+  public viewModel = readonlyComputed(() => {
     return {
-      content: this.data.content,
+      content: this.state.content,
       textTransitionTargetElementId: 'passion',
     }
   })
 
   public openInNewTab = openInNewTab
+
+  public destroy() {
+    this.disposers.forEach((dispose) => dispose())
+  }
+
+  private disposers: Array<() => void> = []
+
+  private state = reactive({
+    content: contentModel,
+  })
 }

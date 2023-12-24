@@ -1,8 +1,8 @@
 import {
   ERROR,
   createArrayTransitionGenerator,
-} from '@/JMDK.UI/helpers/arrays/array-transition-generator'
-import { expect, it } from '@jest/globals'
+} from '@/JMDK.UI/infrastructure/helpers/arrays/array-transition-generator'
+import { expect, it } from 'vitest'
 
 const fruits = ['apple', 'pear', 'grape', 'mango']
 
@@ -48,6 +48,6 @@ it('throws if trying to start from an index greather than array length', () => {
   })
 
   expect(() => generator.next()).toThrow(
-    ERROR.START_INDEX_GREATER_THAN_ARRAY_LENGTH
+    ERROR.START_INDEX_GREATER_THAN_ARRAY_LENGTH,
   )
 })

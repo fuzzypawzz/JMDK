@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { createArrayTransitionGenerator } from '@/JMDK.UI/helpers/arrays/array-transition-generator'
+import { createArrayTransitionGenerator } from '@/JMDK.UI/infrastructure/helpers/arrays/array-transition-generator'
 import { onBeforeUnmount, onMounted, ref, watchPostEffect } from 'vue'
 
 const componentName = 'text-transition'
@@ -19,7 +19,7 @@ const props = defineProps({
 
   transitionSpeedInMs: {
     type: Number,
-    default: 4500,
+    default: 3000,
   },
 
   elementId: {
