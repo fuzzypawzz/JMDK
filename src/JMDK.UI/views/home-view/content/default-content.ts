@@ -18,7 +18,7 @@ export const contentModel = {
     },
     {
       text: 'My profile on LinkedIn',
-      externalLink: 'https://dk.linkedin.com/in/jannik-maag',
+      externalLink: 'https://dk.linkedin.com/in/jannikmaag',
       title: 'Visit Janniks LinkedIn profile',
       variant: BUTTON_VARIANT.SECONDARY,
       testId: TESTING_ID.LINKEDIN_BUTTON,

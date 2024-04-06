@@ -12,7 +12,7 @@ afterEach(() => {
 
 it.each([
   [TESTING_ID.GITHUB_BUTTON, 'https://github.com/fuzzypawzz'],
-  [TESTING_ID.LINKEDIN_BUTTON, 'https://dk.linkedin.com/in/jannik-maag'],
+  [TESTING_ID.LINKEDIN_BUTTON, 'https://dk.linkedin.com/in/jannikmaag'],
   [TESTING_ID.STORYBOOK_BUTTON, 'https://jmdkstorybook.netlify.app'],
 ])(
   'opens a new browser tab with the expected url, when clicking the button (%s)',
