@@ -4,10 +4,19 @@ import { TESTING_ID } from '@/JMDK.UI/views/home-view/home-view.constants'
 export const contentModel = {
   heading: 'Jannik Maag',
   handle: '@fuzzypawzz on GitHub',
-  description: `Senior Web developer.<br />
-  Passionate about Front-End architecture.<br />
-  Freelancer.<br />
-  A human being.`,
+
+  description: `I'm a Web developer and Front-End architect.<br />
+    Passionate about <span id="passion"></span><br />
+    Freelancer.<br />
+    A human being.`,
+
+  textTransitionValues: [
+    'framework agnostic design.',
+    'UI application architecture.',
+    'clean code.',
+    'test driven development.',
+  ],
+
   buttonOptions: [
     {
       text: 'My GitHub',
@@ -31,6 +40,7 @@ export const contentModel = {
       testId: TESTING_ID.STORYBOOK_BUTTON,
     },
   ],
+
   hashTags: [
     'TypeScript',
     'Vue.js',
