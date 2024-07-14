@@ -41,17 +41,9 @@
 
 <script setup lang="ts">
 import JButton from '@/JMDK.UI/components/j-button/j-button.vue'
-import { HomeViewPresenter } from './presenter/home-view-presenter'
-import { onBeforeUnmount } from 'vue'
+import { useHomeViewPresenter } from '@/JMDK.UI/views/home-view/home-view-presenter'
 
-const presenter = new HomeViewPresenter()
-const viewModel = presenter.viewModel
-
-onBeforeUnmount(() => presenter.destroy())
-
-presenter.attachView({
-  props: {},
-})
+const { viewModel, presenter } = useHomeViewPresenter()
 </script>
 
 <style lang="scss" src="./home-view.scss" scoped />
