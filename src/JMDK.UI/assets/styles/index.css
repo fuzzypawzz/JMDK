@@ -1,4 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&family=Neucha&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&family=Neucha&display=swap');
 
 :root {
   --jmdk-color-grey-100: #fbfbfb;
@@ -19,6 +19,21 @@ html {
   background-color: var(--jmdk-color-grey-100);
 }
 
+.app__wrapper {
+  padding: 24px 32px;
+}
+
+.app__header {
+  font-family: 'Inria Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  position: fixed;
+
+  @media (min-width: 769px) {
+    font-size: 28px;
+  }
+}
+
 .no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -26,4 +41,33 @@ html {
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.jmdk-button {
+  box-shadow: #094c66 4px 4px 0px;
+  border-radius: 6px;
+  padding: 10px 12px;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  min-width: 120px;
+  transition:
+    transform 200ms,
+    box-shadow 200ms;
+  cursor: pointer;
+}
+
+.jmdk-button:active {
+  transform: translateY(4px) translateX(4px);
+  box-shadow: #094c66 0px 0px 0px;
+}
+
+.jmdk-button--primary {
+  background-color: var(--jmdk-color-scheme-primary);
+  color: var(--jmdk-color-dark-500);
+}
+
+.jmdk-button--secondary {
+  background-color: var(--jmdk-color-scheme-secondary);
+  color: white;
 }
