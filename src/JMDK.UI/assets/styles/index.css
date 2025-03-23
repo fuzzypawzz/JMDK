@@ -1,0 +1,18 @@
+:root {
+  --jmdk-color-grey-100: #fbfbfb;
+  --jmdk-color-grey-800: #aaaaaa;
+  --jmdk-color-blue-200: #b2cbe2;
+  --jmdk-color-orange-500: #fa7725;
+  --jmdk-color-orange-800: #e34837;
+  --jmdk-color-dark-500: #353535;
+  --jmdk-color-scheme-primary: var(--jmdk-color-blue-200);
+  --jmdk-color-scheme-secondary: var(--jmdk-color-orange-500);
+}
+
+* {
+  font-family: 'Inria Sans', sans-serif;
+}
+
+html {
+  background-color: var(--jmdk-color-grey-100);
+}
